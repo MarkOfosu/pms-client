@@ -3,7 +3,6 @@ import Layout from '../layout';
 import '../styles/home.css';
 import '../../global.css';
 import Footer from '../pages/footer'
-// import background from '../../background.jpg';
 
 const Home = () => {
     return (
