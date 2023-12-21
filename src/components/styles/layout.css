@@ -1,0 +1,58 @@
+/* src/styles/layout.css */
+.nav {
+  /* Updated gradient using teal and coral */
+  background: linear-gradient(90deg, rgb(0, 128, 128) 0%, rgb(255, 127, 80) 100%);
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25.33%; /* Default width for smaller screens */
+  height: 100vh;
+  transform: translateX(0); /* Always in view */
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Vertical layout */
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Allows the list to fill the space */
+}
+
+.nav ul li {
+  margin: 0;
+  padding: 10px; /* Adjust as needed */
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF; /* Updated text color for better contrast */
+}
+
+/* Style for larger screens */
+@media (min-width: 769px) {
+  .nav {
+      width: 100%; /* Full width for larger screens */
+      height: auto; /* Auto height */
+      flex-direction: row; /* Horizontal layout */
+      position: static; /* Remove fixed positioning */
+      padding: 40px 0; /* Adjust as needed */
+  }
+
+  .nav ul {
+      display: flex;
+      flex-direction: row; /* Horizontal layout for list items */
+      justify-content: center; /* Center the list items */
+  }
+
+  .nav ul li {
+      padding: 10px 20px; /* Adjust as needed */
+  }
+
+  .content-container {
+      margin-top: 60px; /* Adjust based on the height of your nav bar */
+  }
+}

@@ -1,0 +1,60 @@
+/* src/styles/form.css */
+
+.form-container {
+  max-width: 300px;
+  margin: auto;
+  padding: 20px 50px;
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+  /* Subtle teal background for the form container */
+  background: #b2dfdb;
+  align-items: center;
+  justify-content: center;
+}
+
+.form h2 {
+  text-align: center;
+  font-weight: bold;
+  /* Coral color for the form headings */
+  color: rgb(255, 127, 80);
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  /* Slightly darker border color for contrast */
+  border: 1px solid #a2c0bf;
+  border-radius: 4px;
+}
+
+.form-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  /* Gradient for the button using the teal and coral theme */
+  background: linear-gradient(90deg, rgb(0, 128, 128) 0%, rgb(255, 127, 80) 100%);
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.form-button:hover {
+  /* Slightly darker on hover for better interaction feedback */
+  opacity: 0.85;
+}
+
+.link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.link a {
+  /* Coral color for links to maintain consistency with the theme */
+  color: rgb(255, 127, 80);
+  text-decoration: none;
+}
