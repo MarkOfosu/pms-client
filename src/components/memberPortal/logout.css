@@ -1,0 +1,22 @@
+/* src/components/Logout.css */
+
+.logout-tooltip {
+    /* Styling for your tooltip */
+    position: absolute;
+    bottom: 100%; /* Show above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    z-index: 1000; /* Make sure it's above other items */
+  }
+  
+  .logout-container {
+    position: relative; /* Container for relative positioning of the tooltip */
+  }
+  

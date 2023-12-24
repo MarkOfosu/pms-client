@@ -8,22 +8,24 @@ const Home = () => {
     return (
       <div>
         <Layout />
-          <div >
-            <div className='home-container'>
+          <div className='page-container' >
+            <div>
                 <h1>Welcome</h1>
-                <p>Please {" "}</p>
+                <p>Are you a member? {" "}</p>
                 <p>
-                <a href='/login'> sign in </a>
+                <a href='/memberPortal'> Member Portal Login </a>
                 </p>
                 <p>or</p>
-                <p><a href='/userRegistration'> register </a>
+                <p><a href='/userRegistration'> Register here</a>
                 </p>
                 <p>
-                to continue.</p>
+                to become a member.</p>
+            </div>
+
+            
             </div>
           <Footer />
-          </div>
-      </div>  
+          </div> 
     )
 }
 

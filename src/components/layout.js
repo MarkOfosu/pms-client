@@ -42,10 +42,7 @@ const Layout = () => {
               <Link to="/" >Home</Link>
             </li>
             <li>
-              <Link to="/login" >Login</Link>
-            </li>
-            <li>
-              <Link to="/userRegistration" >User Registration</Link>
+              <Link to="/memberPortal" >Member Portal</Link>
             </li>
             <li>
               <Link to="/users" >Users</Link>
