@@ -5,6 +5,8 @@ import '../styles/form.css';
 import '../../global.css'
 import Footer from '../pages/footer'
 import {Link} from 'react-router-dom';
+import Layout from '../layout';
+import { useNavigate} from 'react-router-dom';
 
 const UserRegistration = () =>{
     const [userData, setUserData] = useState({
@@ -13,6 +15,8 @@ const UserRegistration = () =>{
         Email_address: '',
         password: ''
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -32,6 +36,7 @@ const UserRegistration = () =>{
         .then(data => {
             console.log('Success:', data);
             alert('User registered successfully');
+            navigate('/login');
 
             //reset the form
             setUserData({
@@ -50,6 +55,8 @@ const UserRegistration = () =>{
     
 
     return (
+        <>
+        <Layout />
         <div className='page-container'>
             <div className="form-container">
                 <form onSubmit={registerUser} className='form'>
@@ -97,6 +104,7 @@ const UserRegistration = () =>{
             </div>
             <Footer />
         </div>
+        </>
     );
 }
 
