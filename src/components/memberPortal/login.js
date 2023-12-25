@@ -70,25 +70,35 @@ const Login = () => {
       <div className="form-container">
         <form onSubmit={handleLogin} className="form">
           <h2>Welcome</h2>
-          <div className="input-container">
+
+          <div class="input-wrapper">
             <input
+              id='email'
               type="email"
               name="email"
               value={loginData.email}
-              onChange={handleChange} 
-              placeholder="Email"
+              onChange={handleChange}
+              autoComplete='off'
               required
             />
+            <label for="email">Email</label>
+              <div class='underline'></div>
           </div>
-          <div className="input-container">
+
+          
+          
+          <div class="input-wrapper">
             <input
+              id='password'
               type="password"
               name="password"
               value={loginData.password}
               onChange={handleChange} 
-              placeholder="Password"
+              autoComplete='off'
               required
             />
+            <label for="password">Password</label>
+             <div class='underline'></div>
           </div>
           <button type="submit" className="form-button">LOGIN</button>
           <div className="link">

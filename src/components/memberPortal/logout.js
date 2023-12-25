@@ -12,18 +12,20 @@ const Logout = () => {
   useEffect(() => {
     let timeout;
     if (showTooltip) {
-      // Hide the tooltip after 3 seconds
       timeout = setTimeout(() => {
         setShowTooltip(false);
-        navigate('/'); // Navigate to home or login after logout
+        navigate('/'); 
       }, 3000);
     }
-    return () => clearTimeout(timeout); // Cleanup the timeout
+    return () => clearTimeout(timeout); 
   }, [showTooltip, navigate]);
 
   const handleLogoutClick = () => {
-    logout();
-    setShowTooltip(true); // Show the tooltip on click
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      logout();
+      setShowTooltip(true);
+    }
+    
   };
 
   return (
