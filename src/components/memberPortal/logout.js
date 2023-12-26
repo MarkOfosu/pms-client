@@ -1,7 +1,7 @@
 // src/components/Logout.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../src/context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import './logout.css';
 
 const Logout = () => {
