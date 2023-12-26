@@ -9,11 +9,13 @@ import Layout from '../layout';
 import { useNavigate} from 'react-router-dom';
 
 const UserRegistration = () =>{
+
     const [userData, setUserData] = useState({
         First_name: '',
         Last_name: '',
         Email_address: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
     });
 
     const navigate = useNavigate();
@@ -24,6 +26,11 @@ const UserRegistration = () =>{
 
     const registerUser = async (e) => {
         e.preventDefault();
+
+        if (userData.password !== userData.confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
     
         fetch('/api/auth/register', {
             method: 'POST',
@@ -43,7 +50,8 @@ const UserRegistration = () =>{
                 First_name: '',
                 Last_name: '',
                 Email_address: '',
-                password: ''
+                password: '',
+                confirmPassword: ''
             });
             
         })
@@ -52,7 +60,6 @@ const UserRegistration = () =>{
            alert('Error registering user');
         });
     }
-    
 
     return (
         <>
@@ -61,40 +68,55 @@ const UserRegistration = () =>{
             <div className="form-container">
                 <form onSubmit={registerUser} className='form'>
                     <h2>Register</h2>
-                    <div className="input-container">
+                    <div class="input-wrapper">
                         <input 
                             onChange={handleChange}
                             name="First_name" 
                             value={userData.First_name} 
-                            placeholder='First name' 
                             required />
+                        <label for='firstName'>First name</label>
+                        <div class='underline'></div>
                     </div>
-                    <div className="input-container">
+                   
+                    <div class="input-wrapper">
                         <input 
                             onChange={handleChange}
                             name="Last_name" 
                             value={userData.Last_name} 
-                            placeholder='Last name' 
                             required />
+                        <label for='lastName'>Last name</label>
+                        <div class='underline'></div>
                     </div>
-                    <div className="input-container">
+                    
+                    <div class="input-wrapper">
                         <input 
                             onChange={handleChange}
                             type="email" 
                             name="Email_address" 
-                            value={userData.Email_address} 
-                            placeholder='Email' 
+                            value={userData.Email_address}
                             required />
-                    
+                        <label for='email'>Email</label>
+                        <div class='underline'></div>
                     </div>
-                    <div className="input-container">
+                    <div class="input-wrapper">
                         <input 
                             onChange={handleChange}
                             type="password" 
                             name="password" 
                             value={userData.password} 
-                            placeholder='Password' 
                             required />
+                        <label for='password'>Password</label>
+                        <div class='underline'></div>
+                    </div>
+                    <div class="input-wrapper">
+                        <input 
+                            onChange={handleChange}
+                            type="password" 
+                            name="confirmPassword" 
+                            value={userData.confirmPassword} 
+                            required />
+                        <label for='confirmPassword'>Confirm Password</label>
+                        <div class='underline'></div>
                     </div>
                     <button  type="submit" className='form-button'>Register</button>
                     <div className="link">
@@ -107,6 +129,9 @@ const UserRegistration = () =>{
         </>
     );
 }
+
+
+
 
 export default UserRegistration;
 

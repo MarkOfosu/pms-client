@@ -66,27 +66,20 @@ const Login = () => {
 
   return (
     <div className='page-container'>
-
       <div className="form-container">
         <form onSubmit={handleLogin} className="form">
           <h2>Welcome</h2>
-
           <div class="input-wrapper">
             <input
               id='email'
-              type="email"
               name="email"
               value={loginData.email}
               onChange={handleChange}
-              autoComplete='off'
               required
             />
             <label for="email">Email</label>
-              <div class='underline'></div>
+            <div class='underline'></div>
           </div>
-
-          
-          
           <div class="input-wrapper">
             <input
               id='password'
@@ -94,7 +87,6 @@ const Login = () => {
               name="password"
               value={loginData.password}
               onChange={handleChange} 
-              autoComplete='off'
               required
             />
             <label for="password">Password</label>
