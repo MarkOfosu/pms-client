@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './logout.css';
+import logoutIcon from '../../resource/logout.svg';
+import Tooltip from '../tooltip';
 
 const Logout = () => {
   const { logout } = useAuth();
@@ -30,9 +32,12 @@ const Logout = () => {
 
   return (
     <div className="logout-container">
+    <Tooltip content="Logout" direction="right">
       <button onClick={handleLogoutClick} className="logout-button">
-        Logout
+        <img src={logoutIcon} alt="Logout" />
+        Log Out
       </button>
+    </Tooltip>
       {showTooltip && <div className="logout-tooltip">Logout successful!</div>}
     </div>
   );

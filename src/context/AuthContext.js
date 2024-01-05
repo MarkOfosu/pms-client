@@ -15,14 +15,23 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('isLoggedIn', isLoggedIn);
     }, [isLoggedIn]);
 
-    const login = () => {
-        setIsLoggedIn(true);
+    //MAKE IT ASYNC TO CHECK IF USER IS LOGGED IN
+    const login = async () => {
+        setIsLoggedIn(true); // Update state
+        localStorage.setItem('isLoggedIn', true); // Update localStorage
     };
 
     const logout = () => {
         setIsLoggedIn(false); // Update state
         localStorage.removeItem('isLoggedIn'); // Clear localStorage
     };
+
+    // const value = {
+    //     isLoggedIn,
+    //     login,
+    //     logout,
+    // };
+        
 
     return (
         <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
