@@ -26,11 +26,6 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('isLoggedIn'); // Clear localStorage
     };
 
-    // const value = {
-    //     isLoggedIn,
-    //     login,
-    //     logout,
-    // };
         
 
     return (

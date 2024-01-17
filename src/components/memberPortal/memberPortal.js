@@ -1,5 +1,5 @@
 //main page will be the login page
-import Login from '../memberPortal/login';
+import Login from './login';
 import '../styles/home.css';
 import '../../global.css';
 import PortalNav from './portalNav';
