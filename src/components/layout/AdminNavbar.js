@@ -1,16 +1,15 @@
 
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import {Logout} from '../Button';
-import {Link} from 'react-router-dom';
-import './Navbar.css';
+import Logout from '../elements/Logout';
+import '../styles/Navbar.css';
 import CreateUserDropdown from './Dropdown';
 import logo from '../../resource/logo1.png'
 
 
-
-const Navbar = () => {
+const AdminNavbar = () => {
     const [click, setClick] = useState(false);
     const [dropdownCheckIn, setDropdownCheckIn] = useState(false);
     const [dropdownCreateSchedule, setDropdownCreateSchedule] = useState(false);
@@ -74,17 +73,11 @@ const Navbar = () => {
                     Admin Profile
                     </Link>
                     </li>
-                    <li className='nav-item'>
-                    <Link to='/logout' className='nav-links-mobile' onClick={closeMobileMenu}>
-                    Log Out
-                    </Link>
-                    </li>
-
                 </ul>
-                <Logout/>
+                <Logout />
                 </nav>
             </>
         );
     };
 
-    export default Navbar;
+    export default AdminNavbar;

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import '../styles/form.css';
 import '../../global.css';
-import Footer from '../pages/footer';
+import Footer from './footer';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../layout';
@@ -84,7 +84,6 @@ const UserRegistration = () => {
 
     return (
         <>
-        <Layout />
         <div className='page-container'>
             <div className="form-container">
                 <form onSubmit={registerUser} className='form'>

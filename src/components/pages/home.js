@@ -1,13 +1,11 @@
 import React from 'react'
-import Layout from '../layout';
 import '../styles/home.css';
 import '../../global.css';
-import Footer from '../pages/footer'
+import Footer from '../elements/footer'
 
 const Home = () => {
     return (
       <div>
-        <Layout />
           <div className='page-container' >
             <div>
                 <h1>Welcome</h1>

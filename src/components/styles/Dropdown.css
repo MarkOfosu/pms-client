@@ -1,0 +1,48 @@
+.dropdown-menu {
+  background: var(--primary-color); /* Teal background for the dropdown */
+  width: 180px;
+  position: absolute;
+  top: 80px;
+  list-style: none;
+  text-align: start;
+  border-radius: 4px; /* Optional: to match the theme's rounded edges */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional: adding a slight shadow for depth */
+}
+
+.dropdown-menu li {
+  background: var(--primary-color); /* Teal background for each list item */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.dropdown-menu li:hover {
+  background: var(--hover-color); /* Darker teal for hover */
+}
+
+.dropdown-menu.clicked {
+  display: none;
+}
+
+.dropdown-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: var(--secondary-color); /* Orange text for the links */
+  padding: 16px;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.dropdown-link:hover {
+  color: #fff; /* White text on hover for better readability */
+}
+
+@media screen and (max-width: 960px) {
+  .dropdown-menu {
+      background: var(--primary-color); /* Ensure mobile responsiveness keeps theme */
+  }
+
+  .fa-caret-down {
+      display: none; /* Hide caret icon on smaller screens if necessary */
+  }
+}

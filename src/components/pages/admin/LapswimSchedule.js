@@ -1,6 +1,6 @@
 import React from 'react'
 
-const createSchedule = () => {
+const LapswimSchedule = () => {
   return (
     <div>
         <h1>Create Schedule</h1>
@@ -9,4 +9,4 @@ const createSchedule = () => {
   )
 }
 
-export default createSchedule
+export default LapswimSchedule;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const checkIn = () => {
+const CheckIn = () => {
   return (
     <div>
         <h1>Check In</h1>
@@ -9,4 +9,4 @@ const checkIn = () => {
   )
 }
 
-export default checkIn
+export default CheckIn

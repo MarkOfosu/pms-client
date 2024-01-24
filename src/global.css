@@ -23,12 +23,10 @@
 
 /*   
   .home,
-  .services,
-  .products,
-  .contact-us,
-  .sign-up,
-  .marketing,
-  .consulting {
+  .adminProfile,
+  .CreateUser,
+  .recordPayment,
+  .users {
     display: flex;
     height: 90vh;
     align-items: center;

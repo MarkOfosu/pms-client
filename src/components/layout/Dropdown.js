@@ -1,7 +1,7 @@
 // Dropdown.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Dropdown.css';
+import '../styles/Dropdown.css';
 import { MenuItems } from './MenuItem'; // import the MenuItems
 
 function CreateUserDropdown({ dropdownType }) {

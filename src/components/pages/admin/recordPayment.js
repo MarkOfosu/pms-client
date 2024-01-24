@@ -1,6 +1,6 @@
 import React from 'react'
 
-const recordPayment = () => {
+const RecordPayment = () => {
   return (
     <div>
         <h1>Record Payment</h1>
@@ -9,4 +9,4 @@ const recordPayment = () => {
   )
 }
 
-export default recordPayment
+export default RecordPayment

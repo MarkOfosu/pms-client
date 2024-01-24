@@ -1,29 +1,24 @@
-//src/App.js
-
-import {BrowserRouter as Router, Route, Routes  } from 'react-router-dom'
-import MemberPortal from './components/memberPortal/memberPortal'
-import UserRegistration from './components/pages/userRegistration'
-import Home from './components/pages/home'
-import Users from './components/pages/users'
-import NotFound from './components/pages/notFound'
-import './global.css'
-
-import Navbar from './components/menu/Navbar'
-
+// src/App.js
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/pages/home';
+import AdminPortal from './components/memberPortal/AdminPortal';
+import UserPortal from './components/memberPortal/UserPortal';
+import BecomeMember from './components/pages/BeomeMember';
+import HomeNavbar from './components/layout/HomeNavBar';
+import './global.css';
 
 function App() {
- 
-
   return (
-
-    <Router>
-      <Navbar />
-      </Router>
-        
-      
-
-  )
+    <div>
+      <HomeNavbar />
+        <Routes>
+          <Route path='/' element={<AdminPortal />} />
+          <Route path='/admin/*' element={<AdminPortal />} />
+          <Route path='/user/*' element={<UserPortal />} />
+          <Route path='/becomeMember' element={<BecomeMember />} />
+        </Routes>
+    </div>
+  );
 }
 
-
-export default App
+export default App;
