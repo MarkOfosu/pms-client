@@ -68,7 +68,7 @@
 
 const Reservations = () => {
     return (
-        <div>
+        <div className="reservations">
             <h1>Reservations</h1>
         </div>
     );

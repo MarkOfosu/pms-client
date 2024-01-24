@@ -10,21 +10,25 @@
 }
 
 
-.page-container {
+/* .page-container {
     /* Use a light teal to keep it in theme but subtle enough not to overpower other elements */
-    background: #b2dfdb;
+    /* background: #b2dfdb;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
+    justify-content: center; */
+/* }  */
 
-
-/*   
+  
   .home,
-  .adminProfile,
+  .aquaAerobics,
   .CreateUser,
+  .createAdmin,
+  .lapSwimCheckIn
+  .LapSwimSchedule,
+  .notFound,
+  .becomeMember,
   .recordPayment,
   .users {
     display: flex;
@@ -35,7 +39,16 @@
   }
   
   .home {
-    background-image: url('./images/img-1.jpg');
+    /* background-image: url('./images/img-1.jpg'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #240ae4;
+    font-size: 100px;
+  }
+  
+  .CreateUser {
+    /* background-image: url('./images/img-2.jpg'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -43,17 +56,8 @@
     font-size: 100px;
   }
   
-  .services {
-    background-image: url('./images/img-2.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }
-  
-  .products {
-    background-image: url('./images/img-3.jpg');
+  .createAdmin {
+    /* background-image: url('./images/img-3.jpg'); */
     background-position: center;
     background-size: fill;
     background-repeat: no-repeat;
@@ -61,8 +65,8 @@
     font-size: 100px;
   }
   
-  .contact-us {
-    background-image: url('./images/img-4.jpg');
+  .lapSwimCheckIn-us {
+    /* background-image: url('./images/img-4.jpg'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -70,8 +74,17 @@
     font-size: 100px;
   }
   
-  .sign-up {
-    background-image: url('./images/img-7.jpg');
+  .becomeMember {
+    /* background-image: url('./images/img-7.jpg'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #711d1d;
+    font-size: 100px;
+  }
+  
+  .notFound {
+    /* background-image: url('./images/img-6.jpg'); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -79,20 +92,11 @@
     font-size: 100px;
   }
   
-  .marketing {
-    background-image: url('./images/img-6.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }
-  
-  .consulting {
-    background-image: url('./images/img-5.jpg');
+  .recordPayment {
+    /* background-image: url('./images/img-5.jpg'); */
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
     font-size: 100px;
-  } */
+  } 

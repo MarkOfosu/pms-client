@@ -12,7 +12,7 @@ function App() {
     <div>
       <HomeNavbar />
         <Routes>
-          <Route path='/' element={<AdminPortal />} />
+          <Route path='/' exact  element={<Home />} />
           <Route path='/admin/*' element={<AdminPortal />} />
           <Route path='/user/*' element={<UserPortal />} />
           <Route path='/becomeMember' element={<BecomeMember />} />

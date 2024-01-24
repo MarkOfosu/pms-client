@@ -1,5 +1,5 @@
 :root {
-  --primary-color:  rgb(75, 120, 120); /* Teal color for the theme */
+  --primary-color:  rgb(71, 79, 104); /* Teal color for the theme */
   --secondary-color: #ff7f50; /* Orange color for the theme */
   --hover-color: #00ced1; /* Darker teal for hover effects */
 }
@@ -8,17 +8,18 @@
   width: 70px;
   height: 70px;
   object-fit: cover;
-  border-radius: 35%; /* Slightly more rounded */
+  border-radius: 25%; /* Slightly more rounded */
   border: 1px solid #fff;
   box-shadow: 0 0 8px rgba(178, 223, 219, 0.5); /* Soft shadow with teal color */
   transition: all 0.3s ease-in-out;
+ 
 }
 
 .navbar {
-  background-color: var(--primary-color); /* Solid color for simplicity */
+  background-color: var(--primary-color);
   height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Updated */
   align-items: center;
   font-size: 1.2rem;
 }
@@ -103,6 +104,7 @@
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
+     
   }
 
   .nav-links {
@@ -162,3 +164,6 @@
       display: none;
   }
 }
+
+
+

@@ -1,8 +1,8 @@
-
+import "../.././global.css"
 
 const BecomeMember = () => {
     return (
-        <div>
+        <div className="becomeMember">
         <h1>Become a Member</h1>
         </div>
     );

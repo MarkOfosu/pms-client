@@ -45,7 +45,7 @@ const AdminNavbar = () => {
                         onMouseEnter={() => handleMouseEnter(setDropdownCheckIn)}
                         onMouseLeave={() => handleMouseLeave(setDropdownCheckIn)}
                     >
-                        <Link to='/checkIn' className='nav-links' onClick={closeMobileMenu}>
+                        <Link  className='nav-links' onClick={closeMobileMenu}>
                             Check-In User <FontAwesomeIcon icon={faCaretDown} />
                         </Link>
                         {dropdownCheckIn && <CreateUserDropdown dropdownType='checkInDropdownItems'/>}
@@ -54,7 +54,7 @@ const AdminNavbar = () => {
                         onMouseEnter={() => handleMouseEnter(setDropdownCreateSchedule)}
                         onMouseLeave={() => handleMouseLeave(setDropdownCreateSchedule)}
                     >
-                        <Link to='/createSchedule' className='nav-links' onClick={closeMobileMenu}>
+                        <Link  className='nav-links' onClick={closeMobileMenu}>
                             Create Schedule <FontAwesomeIcon icon={faCaretDown} />
                         </Link>
                         {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems'/>}
@@ -63,7 +63,7 @@ const AdminNavbar = () => {
                         onMouseEnter={() => handleMouseEnter(setDropdownCreateUser)}
                         onMouseLeave={() => handleMouseLeave(setDropdownCreateUser)}
                     >
-                    <Link to='/createUser' className='nav-links' onClick={closeMobileMenu}>
+                    <Link className='nav-links' onClick={closeMobileMenu}>
                             Create User <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
                     {dropdownCreateUser && <CreateUserDropdown dropdownType="createUserDropdownItems" />}

@@ -5,8 +5,8 @@ import Footer from '../elements/footer'
 
 const Home = () => {
     return (
-      <div>
-          <div className='page-container' >
+      <div >
+          <div className='home' >
             <div>
                 <h1>Welcome</h1>
                 <p>Are you a member? {" "}</p>

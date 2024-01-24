@@ -120,7 +120,7 @@
 
 const Profile = () => {
     return (
-        <div>
+        <div className="profile">
             <h1> User Profile</h1>
         </div>
     );

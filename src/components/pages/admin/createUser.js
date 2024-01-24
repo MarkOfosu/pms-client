@@ -2,7 +2,7 @@ import React from 'react'
 
 const CreateUser = () => {
   return (
-    <div>
+    <div className='createUser'>
         <h1>Create User</h1>
       
     </div>

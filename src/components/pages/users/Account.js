@@ -7,7 +7,7 @@
 
 const Account = () => {
     return (
-        <div>
+        <div className="account">
             <h1> User Account</h1>
         </div>
     )

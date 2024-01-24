@@ -16,12 +16,12 @@ const AdminPortal = () => {
     <>
       <AdminNavbar />
         <Routes>
-          <Route path='admin/createCustomer' element={<CreateUser />} />
-          <Route path='admin/createAdmin' element={<CreateAdmin />} />
-          <Route path='admin/lapSwimCheckIn' element={<LapSwimCheckIn />} />
-          <Route path='admin/Profile' element={<Profile />} />
-          <Route path='admin/createSchedule/lapswim' element={<LapswimSchedule />} />
-          <Route path='admin/createSchedule/lessons' element={<AquaAerobicsSchedule />} />
+          <Route path='/admin/createUser' element={<CreateUser />} />
+          <Route path='/admin/createAdmin' element={<CreateAdmin />} />
+          <Route path='/admin/lapSwimCheckIn' element={<LapSwimCheckIn />} />
+          <Route path='/admin/Profile' element={<Profile />} />
+          <Route path='/admin/createSchedule/lapswim' element={<LapswimSchedule />} />
+          <Route path='/admin/createSchedule/aquaAerobics' element={<AquaAerobicsSchedule />} />
         </Routes>
     </>
   );

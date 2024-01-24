@@ -1,6 +1,6 @@
 const LapSwimCheckIn = () => {
     return (
-        <div className='container'>
+        <div className='lapswimCheckIn'>
             <hi className='center-align'>Lap Swim Check In</hi>
 
         </div>

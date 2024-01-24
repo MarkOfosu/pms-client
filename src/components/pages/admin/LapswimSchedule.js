@@ -2,7 +2,7 @@ import React from 'react'
 
 const LapswimSchedule = () => {
   return (
-    <div>
+    <div className='lapswimSchedule'>
         <h1>Create Schedule</h1>
       
     </div>

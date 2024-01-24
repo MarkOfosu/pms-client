@@ -93,7 +93,7 @@
 
 const CreateAdmin = () => {
     return (
-        <div>
+        <div className="createAdmin">
             <h1>Create Admin</h1>
         </div>
     );

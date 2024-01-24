@@ -17,7 +17,7 @@ function Users() {
   , [])
 
   return (
-    <div>
+    <div className='users'>
       <div>
       <h1>Users</h1>
       <ul>
