@@ -1,15 +1,17 @@
 
 import Login from '../elements/login';
 import '../../global.css';
+import Footer from '../elements/footer';
 
 
 const MemberPage = () => {
     return (
-      
-        <div className='memberPage'>
-        <Login />
-        </div>
- 
+        <>
+            <div className='memberPage'>
+                <Login />
+            </div>
+            <Footer />
+        </>
     )
 }
 

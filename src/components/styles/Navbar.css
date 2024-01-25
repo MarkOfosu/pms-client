@@ -1,7 +1,7 @@
 :root {
   --primary-color:   #1f357d; /* Teal color for the theme */
   --secondary-color: #ff7f50; /* Orange color for the theme */
-  --hover-color: #657681; /* Darker teal for hover effects */
+  --hover-color: #506c7d; /* Darker teal for hover effects */
 }
 
 .logo {
@@ -19,12 +19,13 @@
   background-color: var(--primary-color);
   height: 80px;
   display: flex;
-  justify-content: space-between; /* Updated */
+  justify-content: space-between;
   align-items: center;
-  font-size: 1.6rem; 
-  /* position: sticky; */
-  border-bottom: 4px solid rgb(255, 127, 80);
-
+  font-size: 1.2rem;
+  position: fixed; /* Changed from sticky to fixed */
+  top: 0; /* Stick to the top */
+  width: 100%; /* Full width */
+  z-index: 10; /* Ensure it's above other content */
 }
 
 .navbar-logo {

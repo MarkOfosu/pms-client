@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   return (
-      <div  className='login'>
+    
         <div className='form-wrapper' >
           <form onSubmit={handleLogin} className="form">
             <h2>Welcome</h2>
@@ -88,7 +88,7 @@ const Login = () => {
             </div>
           </form> 
         </div>      
-      </div>
+   
   );
 }
 
