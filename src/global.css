@@ -125,32 +125,15 @@
     
   }
   
-  .form-wrapper {
-    background-color: #1f357d;
-    border: 5px solid rgb(246, 240, 246);
-    border-radius: 25px;
-    padding: 20px;
-    width: 80%; /* Adjust width as needed */
-    max-width: 500px; /* Max width for larger screens */
-    margin: 20px; /* Margin for spacing */
-    /* overflow-y: auto; Allows scrolling on the y-axis if content overflows */
-   
-  }
   
-  @media only screen and (max-width: 960px) {
-    .form-wrapper {
-      width: 90%; /* Increase width for small screens */
-      margin: 10px; /* Adjust margin for small screens */
-    }
-  
-    /* Adjust font sizes for smaller screens */
-    h2, .input-wrapper, .form-button, .link a {
-      font-size: 5vw; /* Increase if necessary */
-    }
-  }
 
   .page-container {
-    margin-block-start: 20em;
+    margin-block-start: 7em;
+
+      @media screen and (max-width: 960px ) {
+        margin-block-start: 20rem;   
+        
+      }
    
     
   }

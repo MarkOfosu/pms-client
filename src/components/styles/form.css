@@ -6,13 +6,9 @@
   border-radius: 25px;
   padding: 50px;
   width: 30vw;
-  width: fit-content;
-  
-  
 
-  
     @media screen and (max-width: 960px ) {
-      width: 80vw;
+      width: 90vw;
       /* height: 60vh; */
       
     }
@@ -58,7 +54,7 @@
 .input-wrapper {
   position: relative;
   font-size: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .input-wrapper input {
