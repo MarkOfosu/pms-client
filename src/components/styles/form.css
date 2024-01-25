@@ -3,7 +3,7 @@
 .form-container {
   max-width: 300px;
   margin: auto;
-  padding: 20px 50px;
+  /* padding: 50px 50px; */
   border-radius: 10px;
   font-family: 'Arial', sans-serif;
   background: #b2dfdb;
@@ -15,19 +15,20 @@
   text-align: center;
   font-weight: bold;
   color: rgb(255, 127, 80);
-  margin-bottom: 50px;
+  margin: 50px;
 }
 
-.input-container {
+/* .input-container {
   margin-bottom: 20px;
-}
+} */
 
-.input-container input {
+/* .input-container input {
   width: 100%;
-  padding: 10px;
+  padding: 30px;
   border: 1px solid #a2c0bf;
   border-radius: 4px;
-}
+ 
+} */
 
 
 .form-button {
@@ -74,7 +75,7 @@
   position: absolute;
   bottom: 10px;
   left: 0;
-  color: #a2c0bf;
+  color: #ff7f50;
   width: 100%;
   padding: 10px 0;
   pointer-events: none;
@@ -92,7 +93,7 @@ input:focus + label,
 input:valid + label {
   transform: translateY(-20px);
   font-size: 14px;
-  color: rgb(79, 59, 59);
+  color: white;
 
 
 }
@@ -110,6 +111,7 @@ input:valid + label {
 
 .input-wrapper > input:focus ~ .underline {
   scale: 1 1;
+ 
 }
 
 

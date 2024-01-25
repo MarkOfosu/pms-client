@@ -5,6 +5,7 @@ import AdminPortal from './components/memberPortal/AdminPortal';
 import UserPortal from './components/memberPortal/UserPortal';
 import BecomeMember from './components/pages/BeomeMember';
 import HomeNavbar from './components/layout/HomeNavBar';
+import MemberPage from './components/memberPortal/MemberPage';
 import './global.css';
 
 function App() {
@@ -13,9 +14,9 @@ function App() {
       <HomeNavbar />
         <Routes>
           <Route path='/' exact  element={<Home />} />
-          <Route path='/admin/*' element={<AdminPortal />} />
-          <Route path='/user/*' element={<UserPortal />} />
           <Route path='/becomeMember' element={<BecomeMember />} />
+          <Route path='/memberPage' element={<MemberPage/>} />
+          <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
     </div>
   );

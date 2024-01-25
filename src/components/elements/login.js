@@ -21,7 +21,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+  
     fetch('/api/auth/login', {
       method: 'POST',
       headers: {
@@ -30,20 +30,23 @@ const Login = () => {
       body: JSON.stringify(loginData),
       credentials: 'include' // Important for cookies
     })
-    .then((response) => {
+    .then(response => {
+      // Check the status code of the response
       if (response.status === 200) {
-        return response.json();
+        return response.json(); // Parse JSON if login is successful
+      } else if (response.status === 401) {
+        throw new Error('Invalid Password'); // Handle invalid password
+      } else if (response.status === 404) {
+        throw new Error('Username not found'); // Handle username not found
       } else {
-        throw new Error('Invalid credentials');
+        throw new Error('An error occurred. Please try again'); // Handle other errors
       }
     })
-    .then(() => {
-      login(true);
-      navigate('/MemberPortal');
-      setLoginData({
-        userName: '',
-        password: ''
-      });
+    .then((userData) => {
+      login(userData); // Pass the received user data to login
+      navigate(userData.userType === 1030 ? '/adminPortal' : '/userPortal');
+      // Reset login data
+      setLoginData({ userName: '', password: '' });
     })
     .catch((error) => {
       alert(error.message);
@@ -52,40 +55,40 @@ const Login = () => {
   };
 
   return (
-    <div className='page-container'>
-      <div className="form-container">
-        <form onSubmit={handleLogin} className="form">
-          <h2>Welcome</h2>
-          <div className="input-wrapper">
-            <input
-              id='userName'
-              name="userName"
-              value={loginData.userName}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="userName">Username</label>
-            <div className='underline'></div>
-          </div>
-          <div className="input-wrapper">
-            <input
-              id='password'
-              type="password"
-              name="password"
-              value={loginData.password}
-              onChange={handleChange} 
-              required
-            />
-            <label htmlFor="password">Password</label>
-            <div className='underline'></div>
-          </div>
-          <button type="submit" className="form-button">LOGIN</button>
-          <div className="link">
-            Don’t have an account? <Link to="/userRegistration">Sign up</Link>
-          </div>
-        </form>       
+      <div  className='login'>
+        <div className='form-wrapper' >
+          <form onSubmit={handleLogin} className="form">
+            <h2>Welcome</h2>
+            <div className="input-wrapper">
+              <input
+                id='userName'
+                name="userName"
+                value={loginData.userName}
+                onChange={handleChange}
+                required
+              />
+              <label htmlFor="userName">Username</label>
+              <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
+              <input
+                id='password'
+                type="password"
+                name="password"
+                value={loginData.password}
+                onChange={handleChange} 
+                required
+              />
+              <label htmlFor="password">Password</label>
+              <div className='underline'></div>
+            </div>
+            <button type="submit" className="form-button">LOGIN</button>
+            <div className="link">
+              Not a Member? <Link to="/becomeMember">Become a Member Now</Link>
+            </div>
+          </form> 
+        </div>      
       </div>
-    </div>
   );
 }
 

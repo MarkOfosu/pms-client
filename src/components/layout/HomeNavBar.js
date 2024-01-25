@@ -35,7 +35,7 @@ const HomeNavbar = () => {
                     <Link to='/becomeMember' className='nav-links'>Become a Member</Link>
                 </li>
                 <li className='nav-item portal' >
-                    <Link to='/login' className='nav-links'>Member Portal</Link>
+                    <Link to='/memberPage' className='nav-links'>Member Portal</Link>
                 </li>
             </ul>
         </nav>

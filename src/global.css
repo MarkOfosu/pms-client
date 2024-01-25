@@ -11,14 +11,13 @@
 
 
 /* .page-container {
-    /* Use a light teal to keep it in theme but subtle enough not to overpower other elements */
-    /* background: #b2dfdb;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-/* }  */
+  background: #b2dfdb;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}  */
 
   
   .home,
@@ -30,12 +29,19 @@
   .notFound,
   .becomeMember,
   .recordPayment,
+  .login,
+  .memberPage,
   .users {
     display: flex;
     height: 90vh;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2rem;
+    @media screen and (max-width: 960px ) {
+      font-size: 4rem;
+      
+
+    }
   }
   
   .home {
@@ -44,7 +50,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #240ae4;
-    font-size: 100px;
+    font-size: 4rem;
   }
   
   .CreateUser {
@@ -79,7 +85,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #711d1d;
+    color: #154090;
     font-size: 100px;
   }
   
@@ -100,3 +106,29 @@
     color: #fff;
     font-size: 100px;
   } 
+
+  .memberPage {
+    /* background-image: url('./images/img-5.jpg'); */
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #eea2a2;
+    font-size: 2rem
+  }
+
+  .form-wrapper {
+    background-color:  #1f357d;;
+    border:  10px solid rgb(246, 240, 246);
+    border-radius: 25px;
+    padding: 20px;
+    height: 70vh;
+    margin: 40px;
+    align-self: center;
+    width: 30vw;
+  }
+

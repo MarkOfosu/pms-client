@@ -1,36 +1,40 @@
 // src/context/AuthContext.js
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext(null);
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = useState(
-        localStorage.getItem('isLoggedIn') === 'true'
-    );
+  const [authState, setAuthState] = useState({
+    isLoggedIn: false,
+    firstName: '',
+    userType: '',
+    // profileImage: null, // Handle as per your requirement
+  });
 
-    useEffect(() => {
-        // Effect to run on component mount and whenever isLoggedIn changes
-        localStorage.setItem('isLoggedIn', isLoggedIn);
-    }, [isLoggedIn]);
+  const login = (userData) => {
+    setAuthState({
+      isLoggedIn: true,
+      firstName: userData.firstName,
+      userType: userData.userType,
+      // profileImage: userData.profileImage,
+    });
+  };
 
-    //MAKE IT ASYNC TO CHECK IF USER IS LOGGED IN
-    const login = async () => {
-        setIsLoggedIn(true); // Update state
-        localStorage.setItem('isLoggedIn', true); // Update localStorage
-    };
+  const logout = () => {
+    setAuthState({
+      isLoggedIn: false,
+      firstName: '',
+      userType: '',
+      // profileImage: null,
+    });
+  };
 
-    const logout = () => {
-        setIsLoggedIn(false); // Update state
-        localStorage.removeItem('isLoggedIn'); // Clear localStorage
-    };
-
-        
-
-    return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{ authState, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
+
