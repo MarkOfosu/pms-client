@@ -7,13 +7,17 @@
     color: #ffffff;
     text-align: center;
     padding: 20px 0;
-    position: relative;
+    position: static;
     bottom: 0;
     width: 100%;
     border-top: 4px solid rgb(255, 127, 80);
+    position:fixed;
+
+
 }
   
 .footer a {
     /* Coral color for links to make them stand out and maintain the theme */
     color: rgb(255, 127, 80);
 }
+

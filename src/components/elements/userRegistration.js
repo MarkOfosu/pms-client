@@ -6,7 +6,8 @@ import '../../global.css';
 import Footer from './footer';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../layout';
+import { faAlignJustify } from '@fortawesome/free-solid-svg-icons';
+
 
 const UserRegistration = () => {
   const [userData, setUserData] = useState({
@@ -17,7 +18,8 @@ const UserRegistration = () => {
     dateOfBirth: '',
     address: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    userType: '',
   });
 
   const navigate = useNavigate();
@@ -25,6 +27,7 @@ const UserRegistration = () => {
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
+  console.log(userData);
   
   const registerUser = async (e) => {
     e.preventDefault();
@@ -71,7 +74,10 @@ const UserRegistration = () => {
         dateOfBirth: '',
         address: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        userType: '',
+        
+
       });
     })
     .catch((error) => {
@@ -80,25 +86,35 @@ const UserRegistration = () => {
     });
 };
 
-
-
     return (
-        <>
-        <div className='page-container'>
-            <div className="form-container">
+        <div className='form-wrapper'>
+           
                 <form onSubmit={registerUser} className='form'>
                     <h2>Register</h2>
                     <div className="input-wrapper">
-                        <input
-                            id='userName'
-                            name="userName"
-                            value={userData.userName}
-                            onChange={handleChange}
-                            autoComplete='on'
-                            required
-                        />
-                        <label htmlFor="userName">Username</label>
-                        <div className='underline'></div>
+                    <div className='input-wrapper'>
+                        <select
+                          id='userType'
+                          name="userType"
+                          value={userData.userType}
+                          onChange={handleChange}
+                          required
+                        >
+                          <option value="">Select User Type</option>
+                          <option value="1030">Register Admin User</option>
+                          <option value="1020">Register Public User</option>
+                        </select>
+                      </div>
+                      <input
+                          id='userName'
+                          name="userName"
+                          value={userData.userName}
+                          onChange={handleChange}
+                          autoComplete='on'
+                          required
+                      />
+                      <label htmlFor="userName">Username</label>
+                      <div className='underline'></div>
                     </div>
                     <div className="input-wrapper">
                         <input
@@ -181,14 +197,8 @@ const UserRegistration = () => {
                         <div className='underline'></div>
                     </div>
                     <button  type="submit" className='form-button'>Register</button>
-                    <div className="link">
-                        Already have an account? <Link to="/login">Login</Link>
-                    </div> 
                 </form>
-            </div>
-            <Footer />
         </div>
-        </>
     );
 }
 

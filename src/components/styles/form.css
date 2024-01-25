@@ -1,37 +1,31 @@
 /* src/styles/form.css */
 
-.form-container {
-  max-width: 300px;
-  margin: auto;
-  /* padding: 50px 50px; */
-  border-radius: 10px;
-  font-family: 'Arial', sans-serif;
-  background: #b2dfdb;
-  align-items: center;
-  justify-content: center;
+.form-wrapper {
+  background-color:  #1f357d;
+  border:  5px solid rgb(246, 240, 246);
+  border-radius: 25px;
+  padding: 50px;
+  width: 30vw;
+  width: fit-content;
+  
+  
+
+  
+    @media screen and (max-width: 960px ) {
+      width: 80vw;
+      /* height: 60vh; */
+      
+    }
 }
 
 .form h2 {
   text-align: center;
   font-weight: bold;
   color: rgb(255, 127, 80);
-  margin-top: 50px; /* Set top margin */
-  margin-bottom: 50px; /* Set bottom margin */
+  /* margin-top: 50px; Set top margin */
+  margin-bottom: 50px; 
   width: 100%; /* Make sure it spans the width of its container */
 }
-
-
-/* .input-container {
-  margin-bottom: 20px;
-} */
-
-/* .input-container input {
-  width: 100%;
-  padding: 30px;
-  border: 1px solid #a2c0bf;
-  border-radius: 4px;
- 
-} */
 
 
 .form-button {
@@ -64,7 +58,7 @@
 .input-wrapper {
   position: relative;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .input-wrapper input {
