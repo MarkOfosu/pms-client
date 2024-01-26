@@ -3,11 +3,12 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import Logout from '../elements/Logout';
 import '../styles/Navbar.css';
 import CreateUserDropdown from './Dropdown';
 import logo from '../../resource/logo1.png'
 import UserProfile from '../elements/UserProfile';
+import Logout from '../elements/Logout';
+
 
 
 const AdminNavbar = () => {
@@ -82,7 +83,12 @@ const AdminNavbar = () => {
                             Profile
                         </Link>
                     </li>
-    
+                    <li>
+                        <Link to='/logout' className='nav-links-mobile'onClick={closeMobileMenu}>
+                            logout
+                        </Link>
+                    </li>
+                    
                 </ul>
                <UserProfile/>
                 <Logout />

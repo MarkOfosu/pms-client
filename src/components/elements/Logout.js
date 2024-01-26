@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import '../styles/Button.css';
 import logoutIcon from '../../resource/logout.svg';
+import { Link } from 'react-router-dom';
 
 
 const Logout = () => {
@@ -21,12 +22,12 @@ const Logout = () => {
 }
 
     return (
-        
-        <button onClick={handleLogoutClick} className='btn'>
-        Log Out
-        <img src={logoutIcon} alt="Logout" />
-        </button>
-        
+        <Link to='/logout'>
+            <button onClick={handleLogoutClick} className='btn'>
+                Logout
+            <img src={logoutIcon} alt="Logout" />
+            </button>
+        </Link>
     )
 }
 
