@@ -6,7 +6,7 @@ export const MenuItems = {
     ],
     checkInDropdownItems: [
         { title: 'Lap Swim', path: '/admin/lapSwimCheckIn', cName: 'dropdown-link' },
-        { title: 'Aqua Aerobics', path: '/admin/aquaAerobicsCheckIn', cName: 'dropdown-link' }
+        { title: 'Aqua Aerobics', path: 'admin/aquaAerobicsCheckIn', cName: 'dropdown-link' }
     ],
     createUserDropdownItems: [
         { title: 'Create Customer', path: '/createCustomer', cName: 'dropdown-link' },

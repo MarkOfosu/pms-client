@@ -19,6 +19,12 @@ const AdminNavbar = () => {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
+    const toggleDropdown = (dropdownSetter) => {
+        if (window.innerWidth < 960) {
+            dropdownSetter(prevState => !prevState);
+        }
+    };
+
     const handleMouseEnter = (dropdownSetter) => {
         if (window.innerWidth < 960) {
             dropdownSetter(false);
@@ -31,6 +37,8 @@ const AdminNavbar = () => {
         dropdownSetter(false);
     };
 
+
+
     return (
         <>
             <nav className='navbar'>
@@ -41,39 +49,40 @@ const AdminNavbar = () => {
                     <FontAwesomeIcon icon={click ? faTimes : faBars} />
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    {/* ... other nav items */}
-                    <li className='nav-item'
-                        onMouseEnter={() => handleMouseEnter(setDropdownCheckIn)}
-                        onMouseLeave={() => handleMouseLeave(setDropdownCheckIn)}
-                    >
-                        <Link  className='nav-links' onClick={closeMobileMenu}>
-                            Check-In User <FontAwesomeIcon icon={faCaretDown} />
-                        </Link>
-                        {dropdownCheckIn && <CreateUserDropdown dropdownType='checkInDropdownItems'/>}
-                    </li>
-                    <li className='nav-item'
-                        onMouseEnter={() => handleMouseEnter(setDropdownCreateSchedule)}
-                        onMouseLeave={() => handleMouseLeave(setDropdownCreateSchedule)}
-                    >
-                        <Link  className='nav-links' onClick={closeMobileMenu}>
-                            Create Schedule <FontAwesomeIcon icon={faCaretDown} />
-                        </Link>
-                        {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems'/>}
-                    </li>
-                    <li className='nav-item'
-                        onMouseEnter={() => handleMouseEnter(setDropdownCreateUser)}
-                        onMouseLeave={() => handleMouseLeave(setDropdownCreateUser)}
-                    >
-                    <Link className='nav-links' onClick={closeMobileMenu}>
-                            Create User <FontAwesomeIcon icon={faCaretDown} />
+
+                    <li className='nav-item' onClick={() => toggleDropdown(setDropdownCheckIn)}
+                    onMouseEnter={() => handleMouseEnter(setDropdownCheckIn)}
+                        onMouseLeave={() => handleMouseLeave(setDropdownCheckIn)}>
+                    <Link className='nav-links'>
+                        Check-In User <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
-                    {dropdownCreateUser && <CreateUserDropdown dropdownType="createUserDropdownItems" />}
+                    {dropdownCheckIn && <CreateUserDropdown dropdownType='checkInDropdownItems'/>}
+                    </li>
+
+                    <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateSchedule)}
+                    onMouseEnter={() => handleMouseEnter(setDropdownCreateSchedule)}
+                        onMouseLeave={() => handleMouseLeave(setDropdownCreateSchedule)}>
+                    <Link className='nav-links'>
+                        Create Schedule <FontAwesomeIcon icon={faCaretDown} />
+                    </Link>
+                    {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems'/>}
+                    </li>
+
+                    <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateUser)}
+                    onMouseEnter={() => handleMouseEnter(setDropdownCreateUser)}
+                        onMouseLeave={() => handleMouseLeave(setDropdownCreateUser)}>
+                    <Link className='nav-links'>
+                        Create User <FontAwesomeIcon icon={faCaretDown} />
+                    </Link>
+                    {dropdownCreateUser && <CreateUserDropdown dropdownType='createUserDropdownItems'/>}
+
                     </li>
                     <li className='nav-item'>
-                    <Link to='/admin/profile' className='nav-links' onClick={closeMobileMenu}>
-                        Profile
-                    </Link>
+                        <Link to='/admin/profile' className='nav-links' onClick={closeMobileMenu}>
+                            Profile
+                        </Link>
                     </li>
+    
                 </ul>
                <UserProfile/>
                 <Logout />

@@ -9,12 +9,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 const HomeNavbar = () => {
-
     const [click, setClick] = useState(false);
- 
+  
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+ 
+
+ 
 
    ;
 
@@ -29,13 +31,13 @@ const HomeNavbar = () => {
         </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                    <Link to='/' className='nav-links'>Home</Link>
+                    <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
                 </li>
                 <li className='nav-item'>
-                    <Link to='/becomeMember' className='nav-links'>Become a Member</Link>
+                    <Link to='/becomeMember' className='nav-links' onClick={closeMobileMenu}>Become a Member</Link>
                 </li>
                 <li className='nav-item portal' >
-                    <Link to='/memberPage' className='nav-links'>Member Portal</Link>
+                    <Link to='/memberPage' className='nav-links' onClick={closeMobileMenu}>Member Portal</Link>
                 </li>
             </ul>
         </nav>
