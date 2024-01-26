@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       isLoggedIn: true,
       firstName: userData.firstName,
       userType: userData.userType,
-      // profileImage: userData.profileImage,
+      image : userData.profileImage,
     });
   };
 
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       isLoggedIn: false,
       firstName: '',
       userType: '',
-      // profileImage: null,
+      profileImage: null,
     });
   };
 

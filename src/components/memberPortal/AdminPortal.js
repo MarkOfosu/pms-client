@@ -1,5 +1,5 @@
 // AdminPortal.js
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../layout/AdminNavbar';
@@ -14,20 +14,25 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const AdminPortal = () => {
   const { authState } = useAuth();
+  const { isLoggedIn, userType, firstName, image } = authState;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!authState.isLoggedIn) {
-      navigate('/'); 
-    }
+useEffect(() => {
+  if (!isLoggedIn) {
+    navigate('/');
   }
-  , [authState.isLoggedIn, navigate]);
+  
+}, [isLoggedIn, navigate, userType]);
+
+ 
+
 
   return (
     <>
-      <AdminNavbar />
+      <AdminNavbar user={{ firstName: firstName, image: image }} />
         <Routes>
           <Route path='/admin/createUser' element={<CreateUser />} />
           <Route path='/admin/createAdmin' element={<CreateAdmin />} />
@@ -38,6 +43,12 @@ const AdminPortal = () => {
           <Route path='/admin/*' element={<Profile />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
+        <div>
+        <div className='memberPage'>
+          
+          {isLoggedIn ?  <h1 >Welcome {firstName}</h1> : null}
+          </div>
+        </div>
       <Footer />
     </>
   );

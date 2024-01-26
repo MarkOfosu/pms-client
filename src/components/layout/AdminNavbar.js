@@ -7,6 +7,7 @@ import Logout from '../elements/Logout';
 import '../styles/Navbar.css';
 import CreateUserDropdown from './Dropdown';
 import logo from '../../resource/logo1.png'
+import UserProfile from '../elements/UserProfile';
 
 
 const AdminNavbar = () => {
@@ -70,10 +71,12 @@ const AdminNavbar = () => {
                     </li>
                     <li className='nav-item'>
                     <Link to='/adminProfile' className='nav-links' onClick={closeMobileMenu}>
-                    Admin Profile
+                        Profile
                     </Link>
                     </li>
                 </ul>
+
+               <UserProfile/>
                 <Logout />
                 </nav>
             </>
