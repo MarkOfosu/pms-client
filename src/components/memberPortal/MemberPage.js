@@ -1,24 +1,35 @@
-
+import { useEffect } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import Login from '../elements/login';
-import '../../global.css';
-import '../styles/form.css';
 import Footer from '../elements/footer';
-import UserRegistration from '../elements/userRegistration';
-
+import '../../global.css';
 
 const MemberPage = () => {
-    return (
-        <>
-           
-            <div className='memberPage'>
-                <div className='page-container'>
-                <UserRegistration/>
-                </div>
-            </div>
-            <Footer />
-        </>
-    )
-}
+  const navigate = useNavigate();
+  const { authState } = useAuth();
+  const { isLoggedIn, userType } = authState;
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(userType === 1030 ? '/adminPortal' : userType === 1020 ? '/userPortal' : '/memberPage');
+    }
+  }
+  , [isLoggedIn, navigate, userType]);
+
+  console.log(userType);
+  console.log(isLoggedIn);
+
+  return (
+    <>
+      <div className='memberPage'>
+        <div className='page-container'>
+          {!isLoggedIn && <Login />}
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+};
 
 export default MemberPage;
-

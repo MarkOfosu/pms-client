@@ -31,29 +31,34 @@ const Login = () => {
       credentials: 'include' // Important for cookies
     })
     .then(response => {
-      // Check the status code of the response
-      if (response.status === 200) {
-        return response.json(); // Parse JSON if login is successful
-      } else if (response.status === 401) {
-        throw new Error('Invalid Password'); // Handle invalid password
-      } else if (response.status === 404) {
-        throw new Error('Username not found'); // Handle username not found
-      } else {
-        throw new Error('An error occurred. Please try again'); // Handle other errors
+      if (response.status !== 200) {
+        // Handle errors as before
+        if (response.status === 401) {
+          alert('Invalid username or password');
+        }
+        else if (response.status === 404) {
+          alert('User not found');
+        }
+        else {
+          alert('Error logging in');
+        }
+        throw new Error('Error logging in');
       }
+      return response.json();
     })
     .then((userData) => {
+      console.log(userData);
       login(userData); // Pass the received user data to login
-      navigate(userData.userType === 1030 ? '/adminPortal' : '/userPortal');
-      // Reset login data
-      setLoginData({ userName: '', password: '' });
+      console.log(userData.userType);
+      navigate(userData.userType === 1030 ? '/adminPortal' : userData.userType === 1020 ? '/userPortal' : '/memberPage'); // Navigate to the appropriate portal
+      setLoginData({ userName: '', password: '' }); // Reset login data
     })
     .catch((error) => {
-      alert(error.message);
       console.error('Error:', error);
     });
   };
 
+  
   return (
     
         <div className='form-wrapper' >

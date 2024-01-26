@@ -16,6 +16,7 @@ const UserPortal = () => {
         <Route path='user/account' element={<Account />} />
         <Route path='user/reservations' element={<Reservations />} />
         <Route path='user/*' element={<Profile />} />
+        <Route path='*' element={<h1>404 Not Found</h1>} />
       </Routes>
     </>
   );

@@ -47,11 +47,18 @@
   
   .home {
     background-image: url('./resource/background.jpg');
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;
+    justify-content: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #240ae4;
-    font-size: 4rem;
+    color: #1024dc;
+    padding: 2%; /* Padding for spacing */
+    min-height: 100vh; /* Minimum height to fill the viewport */
+    overflow-y: scroll;
+    margin-bottom: 100px;
   }
   
   .CreateUser {
@@ -82,12 +89,19 @@
   }
   
   .becomeMember {
-    /* background-image: url('./images/img-7.jpg'); */
+    background-image: url('./resource/background.jpg');
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;
+    justify-content: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #154090;
-    font-size: 100px;
+    color: #1024dc;
+    padding: 2%; /* Padding for spacing */
+    min-height: 100vh; /* Minimum height to fill the viewport */
+    overflow-y: scroll;
+    margin-bottom: 100px;
   }
   
   .notFound {
@@ -117,7 +131,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #eea2a2;
+    color: #a2b0ee;
     padding: 2%; /* Padding for spacing */
     min-height: 100vh; /* Minimum height to fill the viewport */
     overflow-y: scroll;
@@ -129,6 +143,7 @@
 
   .page-container {
     margin-block-start: 7em;
+    justify-content: center;
 
       @media screen and (max-width: 960px ) {
         margin-block-start: 20rem;   

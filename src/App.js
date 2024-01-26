@@ -1,5 +1,5 @@
 // src/App.js
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './components/pages/home';
 import AdminPortal from './components/memberPortal/AdminPortal';
 import UserPortal from './components/memberPortal/UserPortal';
@@ -13,9 +13,11 @@ function App() {
     <div>
       <HomeNavbar />
         <Routes>
-          <Route path='/' exact  element={<Home />} />
+          <Route path='/'  element={<Home />} />
           <Route path='/becomeMember' element={<BecomeMember />} />
           <Route path='/memberPage' element={<MemberPage/>} />
+          <Route path='/adminPortal/*' element={<AdminPortal />} />
+          <Route path='/userPortal/*' element={<UserPortal />} />
           <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
     </div>
