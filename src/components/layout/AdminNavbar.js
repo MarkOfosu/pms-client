@@ -70,12 +70,11 @@ const AdminNavbar = () => {
                     {dropdownCreateUser && <CreateUserDropdown dropdownType="createUserDropdownItems" />}
                     </li>
                     <li className='nav-item'>
-                    <Link to='/adminProfile' className='nav-links' onClick={closeMobileMenu}>
+                    <Link to='/admin/profile' className='nav-links' onClick={closeMobileMenu}>
                         Profile
                     </Link>
                     </li>
                 </ul>
-
                <UserProfile/>
                 <Logout />
                 </nav>

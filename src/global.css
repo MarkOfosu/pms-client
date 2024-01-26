@@ -9,16 +9,6 @@
   
 }
 
-
-/* .page-container {
-  background: #b2dfdb;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
-
   
   .home,
   .aquaAerobics,
@@ -29,7 +19,6 @@
   .notFound,
   .becomeMember,
   .recordPayment,
-  .login,
   .memberPage,
   .users {
     /* display: flex; */
@@ -105,12 +94,19 @@
   }
   
   .notFound {
-    /* background-image: url('./images/img-6.jpg'); */
+    background-image: url('./resource/background.jpg');
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center;
+    justify-content: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
+    color: #b30a5c;
+    padding: 2%; /* Padding for spacing */
+    min-height: 100vh; /* Minimum height to fill the viewport */
+    overflow-y: scroll;
+    margin-bottom: 100px;
   }
   
   .recordPayment {
@@ -148,7 +144,11 @@
       @media screen and (max-width: 960px ) {
         margin-block-start: 20rem;   
         
-      }
+      } 
+    
+  }
+
+  userProfile {
    
     
   }

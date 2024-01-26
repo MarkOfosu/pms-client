@@ -1,5 +1,6 @@
 import person from "../../resource/person.svg"
 import { useAuth } from "../../context/AuthContext"
+import '../../global.css'
 
 const UserProfile = () => {
     const { authState } = useAuth();

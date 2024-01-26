@@ -7,6 +7,7 @@ import BecomeMember from './components/pages/BeomeMember';
 import HomeNavbar from './components/layout/HomeNavBar';
 import MemberPage from './components/memberPortal/MemberPage';
 import './global.css';
+import NotFound from './components/pages/NotFound';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path='/memberPage' element={<MemberPage/>} />
           <Route path='/adminPortal/*' element={<AdminPortal />} />
           <Route path='/userPortal/*' element={<UserPortal />} />
-          <Route path='*' element={<h1>404 Not Found</h1>} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
     </div>
   );

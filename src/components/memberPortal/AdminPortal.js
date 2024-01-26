@@ -11,43 +11,44 @@ import LapswimSchedule from '../pages/admin/LapswimSchedule';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import NotFound from '../pages/NotFound.js';
+import MemberPage from './MemberPage.js';
 
 
 
 
 const AdminPortal = () => {
   const { authState } = useAuth();
-  const { isLoggedIn, userType, firstName, image } = authState;
+  const { isLoggedIn} = authState;
   const navigate = useNavigate();
 
-useEffect(() => {
-  if (!isLoggedIn) {
-    navigate('/');
-  }
-  
-}, [isLoggedIn, navigate, userType]);
-
- 
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/');
+    }
+    
+  }, [isLoggedIn, navigate]);
 
 
   return (
     <>
-      <AdminNavbar user={{ firstName: firstName, image: image }} />
+      <AdminNavbar />
         <Routes>
           <Route path='/admin/createUser' element={<CreateUser />} />
           <Route path='/admin/createAdmin' element={<CreateAdmin />} />
           <Route path='/admin/lapSwimCheckIn' element={<LapSwimCheckIn />} />
-          <Route path='/admin/Profile' element={<Profile />} />
+          <Route path='admin/profile' element={<Profile />} />
           <Route path='/admin/createSchedule/lapswim' element={<LapswimSchedule />} />
           <Route path='/admin/createSchedule/aquaAerobics' element={<AquaAerobicsSchedule />} />
-          <Route path='/admin/*' element={<Profile />} />
-          <Route path='*' element={<h1>404 Not Found</h1>} />
+          <Route path='/admin/*' element={<AdminPortal />} />
+        
+
         </Routes>
         <div>
         <div className='memberPage'>
           
-          {isLoggedIn ?  <h1 >Welcome {firstName}</h1> : null}
-          </div>
+    
+        </div>
         </div>
       <Footer />
     </>

@@ -5,6 +5,7 @@ import UserNavbar from '../layout/UserNavbar';
 import Profile from '../pages/users/Profile';
 import Account from '../pages/users/Account';
 import Reservations from '../pages/users/Reservations';
+import NotFound from '../pages/NotFound';
 //... Import other user components
 
 const UserPortal = () => {
@@ -16,7 +17,7 @@ const UserPortal = () => {
         <Route path='user/account' element={<Account />} />
         <Route path='user/reservations' element={<Reservations />} />
         <Route path='user/*' element={<Profile />} />
-        <Route path='*' element={<h1>404 Not Found</h1>} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </>
   );

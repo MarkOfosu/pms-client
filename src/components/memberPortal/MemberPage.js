@@ -8,9 +8,7 @@ import '../../global.css';
 const MemberPage = () => {
   const navigate = useNavigate();
   const { authState } = useAuth();
-  const { isLoggedIn, userType, firstName } = authState;
-  console.log(firstName);
-
+  const { isLoggedIn, userType } = authState;
  
 
   useEffect(() => {
@@ -19,10 +17,7 @@ const MemberPage = () => {
     }
   }
   , [isLoggedIn, navigate, userType]);
-
-  console.log(userType);
-  console.log(isLoggedIn);
-
+  
   return (
     <>
       <div className='memberPage'>

@@ -32,7 +32,6 @@ const Login = () => {
     })
     .then(response => {
       if (response.status !== 200) {
-        // Handle errors as before
         if (response.status === 401) {
           alert('Invalid username or password');
         }
@@ -47,11 +46,9 @@ const Login = () => {
       return response.json();
     })
     .then((userData) => {
-      console.log(userData);
-      login(userData); // Pass the received user data to login
-      console.log(userData.userType);
-      navigate(userData.userType === 1030 ? '/adminPortal' : userData.userType === 1020 ? '/userPortal' : '/memberPage'); // Navigate to the appropriate portal
-      setLoginData({ userName: '', password: '' }); // Reset login data
+      login(userData); 
+      navigate(userData.userType === 1030 ? '/adminPortal' : userData.userType === 1020 ? '/userPortal' : '/memberPage'); 
+      setLoginData({ userName: '', password: '' }); 
     })
     .catch((error) => {
       console.error('Error:', error);
