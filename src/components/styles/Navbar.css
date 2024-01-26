@@ -25,7 +25,7 @@
   position: fixed; /* Changed from sticky to fixed */
   top: 0; /* Stick to the top */
   width: 100%; /* Full width */
-  z-index:1;
+  /* z-index:1; */
 }
 
 .navbar-logo {
@@ -81,11 +81,8 @@
 
 @media screen and (max-width: 960px) {
   .NavbarItems {
-      position: relative;
-
-      
+      position: relative; 
   }
-
   .nav-menu {
       display: flex;
       flex-direction: column;
@@ -121,10 +118,10 @@
   }
 
   .navbar-logo {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
-      transform: translate(25%, 50%);
+      transform: translate(25%, 30%);
   }
 
   .menu-icon {
