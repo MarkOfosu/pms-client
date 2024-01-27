@@ -148,7 +148,22 @@
     
   }
 
-  userProfile {
-   
+  .userProfile__container {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    img {
+      display: flex;
+      margin: 0 auto;
+      width: 40px;  
+    }
+
+    h1 {
+      display: flex;
+      margin: 0 auto;
+      font-size: 1.5rem;
+    }
+  
     
   }

@@ -47,7 +47,6 @@ const AdminPortal = () => {
         <div>
         <div className='memberPage'>
           
-    
         </div>
         </div>
       <Footer />
