@@ -2,7 +2,7 @@
 
 .footer {
     /* A darker shade of teal for the footer background for subtlety */
-    background-color:#b2cee0;
+    background-color:#1f357d;
     /* Using white text color for better contrast against the darker background */
     color: #ffffff;
     text-align: center;
@@ -12,6 +12,7 @@
     width: 100%;
     border-top: 4px solid rgb(255, 127, 80);
     position:fixed;
+    height: fit-content;
 
 
 }

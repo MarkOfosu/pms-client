@@ -13,7 +13,7 @@ const MemberPage = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate(userType === 1030 ? '/adminPortal' : userType === 1020 ? '/userPortal' : '/memberPage');
+      navigate(userType === 1030 ? '/adminLayout' : userType === 1020 ? '/userLayout' : '/memberPage');
     }
   }
   , [isLoggedIn, navigate, userType]);

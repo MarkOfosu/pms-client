@@ -6,19 +6,12 @@ import { Link } from 'react-router-dom';
 import logo from '../../resource/logo1.png';
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 const HomeNavbar = () => {
     const [click, setClick] = useState(false);
-  
-
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
- 
-
- 
-
-   ;
 
    
     return (

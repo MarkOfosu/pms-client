@@ -1,169 +1,103 @@
 
 /* global.css */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'PT Sans', sans-serif;
-  
+:root {
+  --background-image: url('./resource/background.jpg');
+  --font-color: white;
+  --font-size-large: 100px;
+  --font-size-medium: 2rem;
+  --font-size-small: 1.4rem;
+  --margin-bottom-large: 100px;
+  --navbar-height: 80px; /* Adjust to your navbar's height */
 }
 
-  
-  .home,
-  .aquaAerobics,
-  .CreateUser,
-  .createAdmin,
-  .lapSwimCheckIn
-  .LapSwimSchedule,
-  .notFound,
-  .becomeMember,
-  .recordPayment,
-  .memberPage,
-  .users {
-    /* display: flex; */
-    height: 90vh;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-bottom: auto;
-    
-    @media screen and (max-width: 960px ) {
-      font-size: 1.4rem;   
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'PT Sans', sans-serif;
+}
 
-    }
-  }
-  
-  .home {
-    background-image: url('./resource/background.jpg');
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #1024dc;
-    padding: 2%; /* Padding for spacing */
-    min-height: 100vh; /* Minimum height to fill the viewport */
-    overflow-y: scroll;
-    margin-bottom: 100px;
-  }
-  
-  .CreateUser {
-    /* background-image: url('./images/img-2.jpg'); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }
-  
-  .createAdmin {
-    /* background-image: url('./images/img-3.jpg'); */
-    background-position: center;
-    background-size: fill;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }
-  
-  .lapSwimCheckIn-us {
-    /* background-image: url('./images/img-4.jpg'); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  }
-  
-  .becomeMember {
-    background-image: url('./resource/background.jpg');
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #1024dc;
-    padding: 2%; /* Padding for spacing */
-    min-height: 100vh; /* Minimum height to fill the viewport */
-    overflow-y: scroll;
-    margin-bottom: 100px;
-  }
-  
-  .notFound {
-    background-image: url('./resource/background.jpg');
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #b30a5c;
-    padding: 2%; /* Padding for spacing */
-    min-height: 100vh; /* Minimum height to fill the viewport */
-    overflow-y: scroll;
-    margin-bottom: 100px;
-  }
-  
-  .recordPayment {
-    /* background-image: url('./images/img-5.jpg'); */
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-  } 
+body {
+  padding-top: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
 
-  .memberPage {
-    background-image: url('./resource/background.jpg');
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #b30a5c;
-    padding: 2%; /* Padding for spacing */
-    min-height: 100vh; /* Minimum height to fill the viewport */
-    overflow-y: scroll;
-    margin-bottom: 100px;
-    
-  }
-  
-  
-
-  .page-container {
-    margin-block-start: 7em;
-    justify-content: center;
-
-      @media screen and (max-width: 960px ) {
-        margin-block-start: 20rem;   
-        
-      } 
-    
+    padding-bottom: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
   }
 
-  .userProfile__container {
-    display: flex;
-    flex-direction: column;
-    color: #fff;
 
-    img {
-      display: flex;
-      margin: 0 auto;
-      width: 40px;  
-    }
+.home, .becomeMember, .notFound, .memberPage {
+  background-image: var(--background-image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--font-color);
+  padding: 2%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  margin-bottom: var(--margin-bottom-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    h1 {
-      display: flex;
-      margin: 0 auto;
-      font-size: 1.5rem;
-    }
-  
-    
+@media screen and (max-width: 960px) {
+  .home, .becomeMember, .notFound, .memberPage {
+    font-size: var(--font-size-small);
   }
+}
+
+.page-container {
+  background-image: var(--background-image);
+  margin-top: 1em; /* Add top margin to push content below the navbar */
+  justify-content: center;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (max-width: 960px) {
+    margin-top: 3rem; /* Increase top margin on smaller screens if needed */
+  }
+}
+
+.userProfile__container {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+
+  img {
+    margin: 0 auto;
+    width: 40px;  
+  }
+
+  h1 {
+    margin: 0 auto;
+    font-size: 1.5rem;
+  }
+}
+
+.CreateUser, .createAdmin, .lapSwimCheckIn, .recordPayment {
+  color: #fff;
+  font-size: var(--font-size-large);
+}
+
+
+/* If you need a default font size for other pages */
+.default-font-size {
+  font-size: var(--font-size-medium);
+}
+
+/* Responsive font size */
+@media screen and (max-width: 960px) {
+  .default-font-size {
+    font-size: var(--font-size-small);
+  }
+}
+
+.form-wrapper {
+  /* Ensure the form-wrapper doesn't go under the navbar */
+  /* margin-top: calc(var(--navbar-height) + 1em); Example calculation, adjust as necessary */
+}
+
+
+

@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import Button from '../elements/Logout';
 import '../styles/Navbar.css';
 import CreateUserDropdown from './Dropdown';
 import logo from '../../resource/logo1.png'
@@ -72,14 +73,14 @@ const AdminNavbar = () => {
                     <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateUser)}
                     onMouseEnter={() => handleMouseEnter(setDropdownCreateUser)}
                         onMouseLeave={() => handleMouseLeave(setDropdownCreateUser)}>
-                    <Link className='nav-links'>
+                    <Link  className='nav-links'>
                         Create User <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
                     {dropdownCreateUser && <CreateUserDropdown dropdownType='createUserDropdownItems'/>}
 
                     </li>
                     <li className='nav-item'>
-                        <Link to='/admin/profile' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/adminLayout/profile' className='nav-links' onClick={closeMobileMenu}>
                             Profile
                         </Link>
                     </li>

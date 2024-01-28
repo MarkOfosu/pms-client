@@ -6,21 +6,22 @@ import Profile from '../pages/users/Profile';
 import Account from '../pages/users/Account';
 import Reservations from '../pages/users/Reservations';
 import NotFound from '../pages/NotFound';
+import { Outlet } from 'react-router-dom';
 //... Import other user components
 
-const UserPortal = () => {
+const UserLayout = () => {
   return (
     <>
       <UserNavbar />
       <Routes>
-        <Route path='user/profile' element={<Profile />} />
-        <Route path='user/account' element={<Account />} />
-        <Route path='user/reservations' element={<Reservations />} />
-        <Route path='user/*' element={<Profile />} />
+        <Route index element={<Profile />} />
+        <Route path='account' element={<Account />} />
+        <Route path='reservations' element={<Reservations />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      <Outlet />
     </>
   );
 };
 
-export default UserPortal;
+export default UserLayout;

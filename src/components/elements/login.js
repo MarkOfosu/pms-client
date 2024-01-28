@@ -47,7 +47,7 @@ const Login = () => {
     })
     .then((userData) => {
       login(userData); 
-      navigate(userData.userType === 1030 ? '/adminPortal' : userData.userType === 1020 ? '/userPortal' : '/memberPage'); 
+      navigate(userData.userType === 1030 ? '/adminLayout' : userData.userType === 1020 ? '/userLayout' : '/memberPage'); 
       setLoginData({ userName: '', password: '' }); 
     })
     .catch((error) => {

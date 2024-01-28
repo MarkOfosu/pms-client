@@ -3,10 +3,7 @@
 import React, { useState } from 'react';
 import '../styles/form.css';
 import '../../global.css';
-import Footer from './footer';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { faAlignJustify } from '@fortawesome/free-solid-svg-icons';
 
 
 const UserRegistration = () => {
@@ -20,7 +17,7 @@ const UserRegistration = () => {
     password: '',
     confirmPassword: '',
     userType: '',
-  });
+   });
 
   const navigate = useNavigate();
 
@@ -44,7 +41,8 @@ const UserRegistration = () => {
       lastName: userData.lastName,
       dateOfBirth: userData.dateOfBirth,
       address: userData.address,
-      password: userData.password
+      password: userData.password,
+      userType: userData.userType,
     };
 
     fetch('/api/auth/register', {
@@ -65,7 +63,6 @@ const UserRegistration = () => {
     .then(data => {
       console.log('Success:', data);
       alert('User registered successfully');
-      navigate('/login');
       setUserData({
         userName: '',
         email: '',
@@ -76,134 +73,132 @@ const UserRegistration = () => {
         password: '',
         confirmPassword: '',
         userType: '',
-        
-
       });
+      navigate('/memberPortal');
     })
     .catch((error) => {
       console.error('Error:', error);
       alert(error.message);
     });
-};
+  }; // Add closing parenthesis here
 
-    return (
-        <div className='form-wrapper'>
-          <form onSubmit={registerUser} className='form'>
-              <h2>Register</h2>
-              <div className="input-wrapper">
-              <div className='input-wrapper'>
-                  <select
-                    id='userType'
-                    name="userType"
-                    value={userData.userType}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="">Select User Type</option>
-                    <option value="1030">Register Admin User</option>
-                    <option value="1020">Register Public User</option>
-                  </select>
-                </div>
+  return (
+    <div className='page-container'>
+      <div className='form-wrapper'>
+        <form onSubmit={registerUser} className='form'>
+            <h2>Register</h2>
+            <div className="input-wrapper">
+            <div className='input-wrapper'>
+                <select
+                  id='userType'
+                  name="userType"
+                  value={userData.userType}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">Select User Type</option>
+                  <option value="1030">Register Admin User</option>
+                  <option value="1020">Register Public User</option>
+                </select>
+              </div>
+              <input
+                  id='userName'
+                  name="userName"
+                  value={userData.userName}
+                  onChange={handleChange}
+                  autoComplete='on'
+                  required
+              />
+              <label htmlFor="userName">Username</label>
+              <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
                 <input
-                    id='userName'
-                    name="userName"
-                    value={userData.userName}
+                    id='email'
+                    name="email"
+                    value={userData.email}
                     onChange={handleChange}
-                    autoComplete='on'
                     required
                 />
-                <label htmlFor="userName">Username</label>
+                <label htmlFor="email">Email</label>
                 <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='email'
-                      name="email"
-                      value={userData.email}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="email">Email</label>
-                  <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='firstName'
-                      name="firstName"
-                      value={userData.firstName}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="firstName">First Name</label>
-                  <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='lastName'
-                      name="lastName"
-                      value={userData.lastName}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="lastName">Last Name</label>
-                  <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='dateOfBirth'
-                      type="date"
-                      name="dateOfBirth"
-                      value={userData.dateOfBirth}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="dateOfBirth">Date of Birth</label>
-                  <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='address'
-                      name="address"
-                      value={userData.address}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="address">Address</label>
-                  <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='password'
-                      type="password"
-                      name="password"
-                      value={userData.password}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="password">Password</label>
-                  <div className='underline'></div>
-              </div>
-              <div className="input-wrapper">
-                  <input
-                      id='confirmPassword'
-                      type="password"
-                      name="confirmPassword"
-                      value={userData.confirmPassword}
-                      onChange={handleChange}
-                      required
-                  />
-                  <label htmlFor="confirmPassword">Confirm Password</label>
-                  <div className='underline'></div>
-              </div>
-              <button  type="submit" className='form-button'>Register</button>
-          </form>
-        </div>
-    );
-}
-
-
-
-
+            </div>
+            <div className="input-wrapper">
+                <input
+                    id='firstName'
+                    name="firstName"
+                    value={userData.firstName}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="firstName">First Name</label>
+                <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
+                <input
+                    id='lastName'
+                    name="lastName"
+                    value={userData.lastName}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="lastName">Last Name</label>
+                <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
+                <input
+                    id='dateOfBirth'
+                    type="date"
+                    name="dateOfBirth"
+                    value={userData.dateOfBirth}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="dateOfBirth">Date of Birth</label>
+                <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
+                <input
+                    id='address'
+                    name="address"
+                    value={userData.address}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="address">Address</label>
+                <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
+                <input
+                    id='password'
+                    type="password"
+                    name="password"
+                    value={userData.password}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="password">Password</label>
+                <div className='underline'></div>
+            </div>
+            <div className="input-wrapper">
+                <input
+                    id='confirmPassword'
+                    type="password"
+                    name="confirmPassword"
+                    value={userData.confirmPassword}
+                    onChange={handleChange}
+                    required
+                />
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <div className='underline'></div>
+            </div>
+            <button  type="submit" className='form-button'>Register</button>
+        </form>
+      </div>
+      <div /> 
+    </div>  
+  );
+};
 export default UserRegistration;
 
 

@@ -7,23 +7,28 @@ import { Link } from 'react-router-dom';
 
 
 const Logout = () => {
-  const { logout } = useAuth();
+    const { authState, logout } = useAuth();
+
+
+  const { isLoggedIn } = authState;
   const navigate = useNavigate();
 
-  const handleLogoutClick = () => {
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        logout();
-        alert("You are logged out");
-        navigate('/');
-    }else{
-        alert("You are not logged in");
-        navigate('/');  
+ 
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    if (!isLoggedIn) {
+        alert('You are not logged in');
+        return;
     }
-}
-
+    logout();
+    navigate('/');
+    alert('You are now logged out');
+};
+       
+console.log(isLoggedIn);
     return (
-        <Link to='/logout'>
-            <button onClick={handleLogoutClick} className='btn'>
+        <Link >
+            <button onClick={handleLogoutClick} className='logout-btn btn'>
                 Logout
             <img src={logoutIcon} alt="Logout" />
             </button>
