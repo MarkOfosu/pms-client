@@ -10,8 +10,7 @@ const UserProfile = () => {
         <div className="userProfile">
             <div className="userProfile__container">
                 <div className="userProfile__image">
-                {image === null ? 
-                <img  src={person}  alt="profile"/> : <img src={image} alt="profile" />}
+                {image === undefined || null ? <img  src={person}  alt="profile"/> : <img src={image} alt="pic" />}
                 </div>
                 <div className="userProfile__name">
                     <h1>{firstName}</h1>

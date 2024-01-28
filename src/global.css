@@ -66,13 +66,14 @@ body {
   color: #fff;
 
   img {
+    display: block;
     margin: 0 auto;
-    width: 40px;  
+    width: 30px;  
   }
 
   h1 {
     margin: 0 auto;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -94,10 +95,6 @@ body {
   }
 }
 
-.form-wrapper {
-  /* Ensure the form-wrapper doesn't go under the navbar */
-  /* margin-top: calc(var(--navbar-height) + 1em); Example calculation, adjust as necessary */
-}
 
 
 

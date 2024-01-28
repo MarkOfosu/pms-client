@@ -42,7 +42,7 @@ const AdminNavbar = () => {
 
 
     return (
-        <>
+   
             <nav className='navbar'>
                 <Link to='/' className='navbar-logo'>
                     <img src={logo} alt="logo" className="logo" />
@@ -94,7 +94,7 @@ const AdminNavbar = () => {
                <UserProfile/>
                 <Logout />
                 </nav>
-            </>
+
         );
     };
 

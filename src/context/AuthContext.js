@@ -1,5 +1,5 @@
 // src/context/AuthContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext(null);
 
@@ -10,26 +10,68 @@ export const AuthProvider = ({ children }) => {
     isLoggedIn: false,
     firstName: '',
     userType: '',
-    // profileImage: null, // Handle as per your requirement
+    profileImage: null, 
   });
+
+  //after refresh, check if user is logged in
+  // useEffect(() => {
+  //   fetch('/api/auth/checkLoggedIn')
+  //     .then((response) => {
+  //       if (response.status !== 200) {
+  //         throw new Error('Not logged in');
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((userData) => {
+  //       setAuthState({
+  //         isLoggedIn: true,
+  //         firstName: userData.firstName,
+  //         userType: userData.userType,
+  //         profileImage: userData.profileImage,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }
+  // , []);
+
 
   const login = (userData) => {
     setAuthState({
       isLoggedIn: true,
       firstName: userData.firstName,
       userType: userData.userType,
-      image : userData.profileImage,
+      profileImage: userData.profileImage,
     });
+    localStorage.setItem('user', JSON.stringify(userData));
   };
-
-  const logout = () => {
+  
+  const logout = () => {    
     setAuthState({
       isLoggedIn: false,
       firstName: '',
       userType: '',
       profileImage: null,
     });
-  };
+    localStorage.removeItem('user');
+    (async () => {
+      try {
+        await fetch('/api/auth/logout', {
+          method: 'POST',
+          credentials: 'include',
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  
+  }
+  
+
+
+  
+ 
 
   return (
     <AuthContext.Provider value={{ authState, login, logout }}>
