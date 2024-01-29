@@ -3,14 +3,14 @@
 
 :root {
   --background-image: url('./resource/background.jpg');
-  --font-color: white;
+  --font-color: rgb(62, 54, 217);
   --font-size-large: 100px;
   --font-size-medium: 2rem;
   --font-size-small: 1.4rem;
   --margin-bottom-large: 100px;
   --margin-bottom-medium: 50px;
   --margin-bottom-small: 20px;
-  --navbar-height: 70px; /* Adjust to your navbar's height */
+  --navbar-height: 80px; /* Adjust to your navbar's height */
 }
 
 * {
