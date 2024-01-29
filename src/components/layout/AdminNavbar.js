@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import Button from '../elements/Logout';
 import '../styles/Navbar.css';
-import CreateUserDropdown from './Dropdown';
+import CreateUserDropdown from './CreateUserDropdown';
 import logo from '../../resource/logo1.png'
 import UserProfile from '../elements/UserProfile';
 import Logout from '../elements/Logout';
@@ -55,10 +55,10 @@ const AdminNavbar = () => {
                     <li className='nav-item' onClick={() => toggleDropdown(setDropdownCheckIn)}
                     onMouseEnter={() => handleMouseEnter(setDropdownCheckIn)}
                         onMouseLeave={() => handleMouseLeave(setDropdownCheckIn)}>
-                    <Link className='nav-links'>
+                    <Link className='nav-links' >
                         Check-In User <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
-                    {dropdownCheckIn && <CreateUserDropdown dropdownType='checkInDropdownItems'/>}
+                    {dropdownCheckIn && <CreateUserDropdown dropdownType='checkInDropdownItems' onClick={closeMobileMenu}/>}
                     </li>
 
                     <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateSchedule)}
@@ -67,7 +67,7 @@ const AdminNavbar = () => {
                     <Link className='nav-links'>
                         Create Schedule <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
-                    {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems'/>}
+                    {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems' onClick={closeMobileMenu}/>}
                     </li>
 
                     <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateUser)}
@@ -76,7 +76,7 @@ const AdminNavbar = () => {
                     <Link  className='nav-links'>
                         Create User <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
-                    {dropdownCreateUser && <CreateUserDropdown dropdownType='createUserDropdownItems'/>}
+                    {dropdownCreateUser && <CreateUserDropdown dropdownType='createUserDropdownItems' onClick={closeMobileMenu}/>}
 
                     </li>
                     <li className='nav-item'>

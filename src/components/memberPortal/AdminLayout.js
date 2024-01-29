@@ -35,7 +35,7 @@ const AdminLayout = () => {
         <>
           <AdminNavbar />
           <Routes>
-            <Route index element={<CreateAdmin />} />
+            <Route index element={<Profile />} />
             <Route path='createUser' element={<CreateUser />} />
             <Route path='lapSwimCheckIn' element={<LapSwimCheckIn />} />
             <Route path='profile' element={<Profile />} />

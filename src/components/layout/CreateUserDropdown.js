@@ -4,9 +4,9 @@ import '../styles/Dropdown.css';
 import { MenuItems } from './MenuItem'; // import the MenuItems
 import  React, { useState } from 'react';
 
-function CreateUserDropdown({ dropdownType }) {
+function CreateUserDropdown({ dropdownType, onClick }) {
     const [click, setClick] = useState(false);
-    const closeMobileMenu = () => setClick(false);
+    const closeMobileMenu = () => setClick(!click);
 
 
 
@@ -19,7 +19,7 @@ function CreateUserDropdown({ dropdownType }) {
         <ul className='dropdown-menu'>
             {dropdownItems.map((item, index) => (
                 <li key={index}>
-                    <Link className={item.cName} to={item.path}   onClick={closeMobileMenu}>
+                    <Link className={item.cName} to={item.path} onClick={closeMobileMenu}>
                         {item.title}
                     </Link>
                 </li>

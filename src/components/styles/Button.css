@@ -4,6 +4,7 @@
   
   .btn {
     padding: 8px 20px;
+  
     border-radius: 4px;
     outline: none;
     border: none;
@@ -11,6 +12,7 @@
     color: #fff;
     cursor: pointer;
     background-color: var(--primary);
+   
   }
   
   .btn:hover {
@@ -22,3 +24,8 @@
     border: 2px solid var(--primary);
     transition: all 0.3s ease-out;
   }
+
+  
+ 
+  
+  

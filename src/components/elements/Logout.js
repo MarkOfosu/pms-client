@@ -6,6 +6,7 @@ import logoutIcon from '../../resource/logout.svg';
 import { Link } from 'react-router-dom';
 
 
+
 const Logout = () => {
     const { authState, logout } = useAuth();
 
@@ -25,12 +26,13 @@ const Logout = () => {
     alert('You are now logged out');
 };
        
-console.log(isLoggedIn);
     return (
         <Link >
             <button onClick={handleLogoutClick} className='logout-btn btn'>
                 Logout
-            <img src={logoutIcon} alt="Logout" />
+                {/*<div className="btn-icon">
+                    <img src={logoutIcon} alt="Logout" />
+                </div>*/}
             </button>
         </Link>
     )

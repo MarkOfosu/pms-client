@@ -12,6 +12,8 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
+  margin-top: 8%;
+  width: 100%;
 }
 
 .form {
@@ -24,6 +26,7 @@
     width: 90vw; /* Adjust width for mobile view */
     padding: 30px; /* Adjust padding for mobile view */
     height: auto; /* Let the height be dynamic */
+    width: 95%;
   }
 
   /* Rest of your mobile styles */

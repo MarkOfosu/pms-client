@@ -16,7 +16,5 @@
     z-index: 1000; /* Make sure it's above other items */
   }
   
-  .logout-container {
-    position: relative; /* Container for relative positioning of the tooltip */
-  }
+ 
   

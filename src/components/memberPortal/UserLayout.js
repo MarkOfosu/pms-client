@@ -1,6 +1,6 @@
 // UserPortal.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route,Outlet } from 'react-router-dom';
+import {Routes, Route,Outlet } from 'react-router-dom';
 import UserNavbar from '../layout/UserNavbar';
 import Profile from '../pages/users/Profile';
 import Account from '../pages/users/Account';
@@ -18,7 +18,7 @@ const UserLayout = () => {
         <Route path='reservations' element={<Reservations />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      <Outlet />
+      <Outlet /> 
     </>
   );
 };
