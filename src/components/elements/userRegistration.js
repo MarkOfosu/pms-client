@@ -80,10 +80,10 @@ const UserRegistration = () => {
       console.error('Error:', error);
       alert(error.message);
     });
-  }; // Add closing parenthesis here
+  }; 
 
   return (
-    <div className='page-container'>
+    <div className='memberPage'>
       <div className='form-wrapper'>
         <form onSubmit={registerUser} className='form'>
             <h2>Register</h2>

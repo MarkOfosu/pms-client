@@ -1,7 +1,7 @@
 // UserPortal.js
 import React from 'react';
 import {Routes, Route,Outlet } from 'react-router-dom';
-import UserNavbar from '../layout/UserNavbar';
+import UserNavbar from '../navigation/UserNavbar';
 import Profile from '../pages/users/Profile';
 import Account from '../pages/users/Account';
 import Reservations from '../pages/users/Reservations';

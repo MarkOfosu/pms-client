@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     profileImage: null, 
   });
 
-  //after refresh, check if user is logged in
+  // after refresh, check if user is logged in
   // useEffect(() => {
   //   fetch('/api/auth/checkLoggedIn')
   //     .then((response) => {
@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
   //       return response.json();
   //     })
   //     .then((userData) => {
+  //       console.log("frontedn user data fectched",userData);
   //       setAuthState({
   //         isLoggedIn: true,
   //         firstName: userData.firstName,
@@ -68,11 +69,6 @@ export const AuthProvider = ({ children }) => {
   
   }
   
-
-
-  
- 
-
   return (
     <AuthContext.Provider value={{ authState, login, logout }}>
       {children}

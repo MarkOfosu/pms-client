@@ -23,11 +23,11 @@
 body {
   padding-top: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
 
-    padding-bottom: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
+  padding-bottom: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
   }
 
 
-.home, .becomeMember, .notFound, .memberPage, .page-container {
+.home, .becomeMember, .notFound, .memberPage{
   background-image: var(--background-image);
   background-position: center;
   background-size: cover;
@@ -50,10 +50,9 @@ body {
 }
 
 .page-container {
-  background-image: var(--background-image);
   margin-top: 0; 
   justify-content: center;
-  background-image: var(--background-image);
+  /* background-image: var(--background-image); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

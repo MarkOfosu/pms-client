@@ -1,11 +1,11 @@
 // src/App.js
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Home from './components/pages/home';
-import AdminLayout from './components/memberPortal/AdminLayout';
-import UserLayout from './components/memberPortal/UserLayout';
+import AdminLayout from './components/layout/AdminLayout';
+import UserLayout from './components/layout/UserLayout';
 import BecomeMember from './components/pages/BeomeMember';
-import HomeNavbar from './components/layout/HomeNavBar';
-import MemberPage from './components/memberPortal/MemberPage';
+import HomeNavbar from './components/navigation/HomeNavBar';
+import MemberPage from './components/layout/MemberPage';
 import './global.css';
 import NotFound from './components/pages/NotFound';
 import { useAuth } from './context/AuthContext'
@@ -16,9 +16,8 @@ import React, { useEffect } from 'react';
 
 function App() {
   const { login, logout } = useAuth();
-const navigate = useNavigate();
-
-  // after refresh, check if user is logged in from local storage
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const user = localStorage.getItem('user');
     if (user) {

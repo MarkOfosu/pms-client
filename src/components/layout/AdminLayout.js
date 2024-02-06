@@ -2,7 +2,7 @@
 import React, { useEffect} from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
-import AdminNavbar from '../layout/AdminNavbar.js';
+import AdminNavbar from '../navigation/AdminNavbar.js';
 import CreateUser from '../pages/admin/CreateUser.js';
 import CreateAdmin from '../pages/admin/CreateAdmin.js';
 import LapSwimCheckIn from '../pages/admin/LapswimCheckIn.js';
