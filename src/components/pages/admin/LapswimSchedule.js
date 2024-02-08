@@ -49,7 +49,7 @@ const  LapswimSchedule = () => {
         alert('Start time cannot be after end time');
         return;
       }
-      
+
       if (newSchedule.date === '' || newSchedule.lane === '' || newSchedule.startTime === '' || newSchedule.endTime === '' || newSchedule.maxSwimmers === '') {
         alert('Please fill out all fields');
         return;
@@ -86,7 +86,7 @@ const  LapswimSchedule = () => {
   }
 
 
-  
+
   return (
     <div className='page-container'>
       <div className='lapswimSchedule'>
