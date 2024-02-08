@@ -13,30 +13,6 @@ export const AuthProvider = ({ children }) => {
     profileImage: null, 
   });
 
-  // after refresh, check if user is logged in
-  // useEffect(() => {
-  //   fetch('/api/auth/checkLoggedIn')
-  //     .then((response) => {
-  //       if (response.status !== 200) {
-  //         throw new Error('Not logged in');
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((userData) => {
-  //       console.log("frontedn user data fectched",userData);
-  //       setAuthState({
-  //         isLoggedIn: true,
-  //         firstName: userData.firstName,
-  //         userType: userData.userType,
-  //         profileImage: userData.profileImage,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }
-  // , []);
-
 
   const login = (userData) => {
     setAuthState({
@@ -48,26 +24,25 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user', JSON.stringify(userData));
   };
   
-  const logout = () => {    
-    setAuthState({
-      isLoggedIn: false,
-      firstName: '',
-      userType: '',
-      profileImage: null,
+  const logout= async () => {
+    const response = await fetch('/api/auth/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
-    localStorage.removeItem('user');
-    (async () => {
-      try {
-        await fetch('/api/auth/logout', {
-          method: 'POST',
-          credentials: 'include',
-        });
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  
+    if (response.ok) {
+      setAuthState({
+        isLoggedIn: false,
+        firstName: '',
+        userType: '',
+        profileImage: null,
+      });
+      localStorage.removeItem('user');
+    }
   }
+    
+  
   
   return (
     <AuthContext.Provider value={{ authState, login, logout }}>
