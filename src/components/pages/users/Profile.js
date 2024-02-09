@@ -19,11 +19,12 @@ const StyleSheet = {
 const Profile = () => {
 
     return (
-        <div className="profile" style={StyleSheet.profile}>
-        <ProfileCard user={{firstName: "Mark", lastName: "Ofosu", id: 1}} />
-        <br />
-        <AccountCard  user={{firstName: "Mark", lastName: "Ofosu", id: 1}} />
-    </div>
+    //     <div className="profile" style={StyleSheet.profile}>
+    //     <ProfileCard user={{firstName: "Mark", lastName: "Ofosu", id: 1}} />
+    //     <br />
+    //     <AccountCard  user={{firstName: "Mark", lastName: "Ofosu", id: 1}} />
+    // </div>
+    <ProfileCard  />
     )
 }
         
