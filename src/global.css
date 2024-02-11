@@ -105,3 +105,15 @@ body {
     font-size: var(--font-size-small);
   }
 }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}

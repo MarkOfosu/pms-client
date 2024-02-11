@@ -4,7 +4,6 @@ import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../navigation/AdminNavbar.js';
 import CreateUser from '../pages/admin/CreateUser.js';
-import CreateAdmin from '../pages/admin/CreateAdmin.js';
 import LapSwimCheckIn from '../pages/admin/LapswimCheckIn.js';
 import Profile from '../pages/admin/Profile.js';
 import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
@@ -12,8 +11,7 @@ import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
 import { useAuth } from '../../context/AuthContext.js';
 import { useNavigate } from 'react-router-dom';
 import NotFound from '../pages/NotFound.js';
-import MemberPage from './MemberPage.js';
-import Logout from '../elements/Logout.js';
+
 
 import UserRegistration from '../elements/UserRegistration.js';
 import { Outlet } from 'react-router-dom';
