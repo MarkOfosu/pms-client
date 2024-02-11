@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const CreateSchedule = ({ typeOfSchedule }) => {
-  // Define initial state objects for different types of schedules
+
   const initialState = {
     lapSwimSchedule: {
       date: '',
@@ -21,7 +21,6 @@ const CreateSchedule = ({ typeOfSchedule }) => {
     }
   };
 
-  // Initialize state based on typeOfSchedule
 const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
 
   const handleChange = (e) => {
@@ -30,7 +29,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
 
   const handleCreateSchedule = async (e) => {
     e.preventDefault();
-    // Logic to create schedule based on the typeOfSchedule
+
     if (typeOfSchedule === 'lapSwimSchedule') {
             const newSchedule = {
               date: scheduleData.date,
@@ -38,8 +37,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
               startTime: scheduleData.startTime,
               endTime: scheduleData.endTime,
               maxSwimmers: scheduleData.maxSwimmers,
-            };
-            console.log(newSchedule);
+            };;
           
             if (newSchedule.startTime > newSchedule.endTime) {
               alert('Start time cannot be after end time');
@@ -65,7 +63,6 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
               body: JSON.stringify(newSchedule),
             })
               .then((response) => {
-                console.log('Response from server:', response);
                 if (!response.ok) {
                   return response.json().then((data) => {
                     throw new Error(data.message || 'Error creating schedule');
@@ -74,7 +71,6 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
                 return response.json();
               })
               .then((data) => {
-                console.log('Success:', data);
                 alert('Schedule created successfully');
                 setScheduleData( 
                     initialState.lapSwimSchedule 
@@ -120,7 +116,6 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
                     body: JSON.stringify(newSchedule),
                 })
                     .then((response) => {
-                    console.log('Response from server:', response);
                     if (!response.ok) {
                         return response.json().then((data) => {
                         throw new Error(data.message || 'Error creating schedule');
@@ -129,7 +124,6 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
                     return response.json();
                     })
                     .then((data) => {
-                    console.log('Success:', data);
                     alert('Schedule created successfully');
                     setScheduleData(
                         initialState.swimLessonSchedule
@@ -142,7 +136,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
         };
 
   return (
-    
+
     <div>
         <h1>Add New {typeOfSchedule === 'lapSwimSchedule' ? 'Lap Swim' : 'Swim Lesson'} Schedule</h1>
         <br />
