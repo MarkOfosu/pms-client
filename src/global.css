@@ -117,3 +117,9 @@ body {
   border: 1px solid #ccc;
   text-align: center;
 }
+
+
+.create-schedule {
+  background-color: #f0f0f0;
+  padding: 20px;
+}

@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import '../../../global.css';
 
 const CreateSchedule = ({ typeOfSchedule }) => {
 
@@ -33,10 +33,11 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
     if (typeOfSchedule === 'lapSwimSchedule') {
             const newSchedule = {
               date: scheduleData.date,
-                lane: scheduleData.lane,
+              lane: scheduleData.lane,
               startTime: scheduleData.startTime,
               endTime: scheduleData.endTime,
               maxSwimmers: scheduleData.maxSwimmers,
+              Name: 'Lap Swim'
             };;
           
             if (newSchedule.startTime > newSchedule.endTime) {
@@ -136,8 +137,9 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
         };
 
   return (
+    
 
-    <div>
+    <div className='create-schedule'>
         <h1>Add New {typeOfSchedule === 'lapSwimSchedule' ? 'Lap Swim' : 'Swim Lesson'} Schedule</h1>
         <br />
         <h2>Lane</h2>
@@ -149,6 +151,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
             <option value='5'>5</option>
             <option value='6'>6</option>  
         </select>
+        <br /> 
         <h2>Schedule</h2>
 
         <form>
