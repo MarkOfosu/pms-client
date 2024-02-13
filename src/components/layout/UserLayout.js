@@ -14,11 +14,11 @@ const UserLayout = () => {
       <UserNavbar />
       <Routes>
         <Route index element={<Profile />} />
+        <Route path='profile' element={<Profile />} />
         <Route path='account' element={<Account />} />
         <Route path='reservations' element={<Reservations />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      <Outlet /> 
     </>
   );
 };

@@ -39,19 +39,19 @@ const UserNavbar = () => {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        <a href='/user/profile' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/userLayout/profile' className='nav-links' onClick={closeMobileMenu}>
                             Profile
-                        </a>
+                        </Link>
+                    </li>
+                    <li className='nav-item' onClick={() => handleMouseEnter(setClick)}>
+                        <Link to='/userLayout/account' className='nav-links' onClick={closeMobileMenu}>
+                            Account
+                        </Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='/user/account' className='nav-links' onClick={closeMobileMenu}>
-                            Account / Billing
-                        </a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='/user/reservations' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/userLayout/reservations' className='nav-links' onClick={closeMobileMenu}>
                             Reservations
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <UserProfile />

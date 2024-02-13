@@ -33,7 +33,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
     if (typeOfSchedule === 'lapSwimSchedule') {
             const newSchedule = {
               date: scheduleData.date,
-              lane: scheduleData.lane,
+             lane: scheduleData.lane,
               startTime: scheduleData.startTime,
               endTime: scheduleData.endTime,
               maxSwimmers: scheduleData.maxSwimmers,
@@ -144,6 +144,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
         <br />
         <h2>Lane</h2>
         <select id='lane' name='lane' required value={scheduleData.lane} onChange={handleChange}>
+            <option value=''>Select lane</option>
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3</option>

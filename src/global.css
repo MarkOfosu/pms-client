@@ -51,7 +51,7 @@ body {
 
 .page-container {
   margin-top: 0; 
-  justify-content: center;
+  /* justify-content: center; */
   /* background-image: var(--background-image); */
   background-position: center;
   background-size: cover;
@@ -61,10 +61,10 @@ body {
 
   overflow-y: scroll;
   margin-bottom: var( --margin-bottom-small);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
   
   @media screen and (max-width: 960px) {
     margin-top: 0rem; /* Increase top margin on smaller screens if needed */
