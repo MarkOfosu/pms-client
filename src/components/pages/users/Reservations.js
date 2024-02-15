@@ -85,7 +85,7 @@ const ReservationPage = () => {
 
     const handleSubmit = () => {
         if (!selectedActivity || !selectedSlot) {
-            setReservationError('Please select both an activity and a time slot.');
+            setReservationError('Please select time slot.');
             return;
         }
 
