@@ -18,7 +18,7 @@ const ActivitySelection = ({ selectedActivity, handleActivityChange }) => {
             <select id="activity" name="activity" value={selectedActivity} onChange={handleActivityChange}>
                 <option value="">Select an activity</option>
                 {Object.entries(ACTIVITY).map(([key, { name }]) => (
-                    <option key={key} value={key}>{name}</option> // Use name for display
+                    <option key={key} value={key}>{name}</option> 
                 ))}
             </select>
         </div>
@@ -87,19 +87,6 @@ const ReservationPage = () => {
         setReservationError('');
     };
 
-    // const handleSubmit = () => {
-    //     if (!selectedActivity || !selectedSlot) {
-    //         setReservationError('Please select time slot.');
-    //         return;
-    //     }
-
-    //     const selectedSchedule = scheduleData.find(schedule => schedule.ScheduleID === selectedSlot);
-    //     const { Day, Date, Time, Lane } = selectedSchedule;
-
-    //     alert(`Reserved ${selectedActivity} on ${Day}, ${Date} at ${Time} in Lane ${Lane}`);
-    //     setSelectedSlot('');
-    // };
-
     const handlecreateReservation = async () => {
         if (!selectedActivity || !selectedSlot) {
             setReservationError('Please select an activity and time slot.');
@@ -113,14 +100,12 @@ const ReservationPage = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Include the Authorization header if needed, e.g.,
-                    // Authorization: `Bearer ${yourAuthTokenHere}`,
                 },
                 body: JSON.stringify({
                     scheduleId: selectedSlot,
-                    activityTypeId: activityTypeId, // Make sure your server accepts this
+                    activityTypeId: activityTypeId, 
                 }),
-                credentials: 'include', // For sending cookies in cross-origin requests
+                credentials: 'include', 
             });
     
             if (!response.ok) {
@@ -133,7 +118,7 @@ const ReservationPage = () => {
                 alert(`Reserved ${selectedActivity} on ${Day}, ${Date} at ${Time} in Lane ${Lane}`);
                 setSelectedSlot('');
             
-            setSelectedSlot(''); // Reset selected slot on successful reservation
+            setSelectedSlot(''); 
         } catch (error) {
             console.error('Error creating reservation:', error);
             setReservationError(error.message);

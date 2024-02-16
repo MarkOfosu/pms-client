@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import CreateTable from '../../elements/CreateTable';
 import '../../../global.css';
 import CreateSchedule from './CreateSchedule';
 import { formatDate } from '../../../utils/utils';
@@ -36,7 +35,7 @@ const LapswimSchedule = () => {
     };
 
     fetchSchedule();
-    const intervalId = setInterval(fetchSchedule, 5000); // Re-fetch every 5 seconds for updates
+    const intervalId = setInterval(fetchSchedule, 5000); 
     return () => clearInterval(intervalId);
   }, []);
 
