@@ -11,7 +11,7 @@ const AccountCard = ({ user }) => {
 
     
     useEffect(() => {
-        fetch(`auth/api/profiles/${user.id}`)
+        fetch(`auth/api/profiles`)
         .then((response) => {
             if (!response.ok) {
             throw new Error(response.statusText);
@@ -22,7 +22,7 @@ const AccountCard = ({ user }) => {
             setProfile(profile);
         })
         .catch((err) => console.error(err));
-    }, [user.id]);
+    }, []);
     
     return (
         <div className="card-wrapper">

@@ -1,0 +1,65 @@
+/* dashboard.css */
+.dashboard-container {
+    padding: 20px;
+    background-color: #f5f5f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.reservation-card {
+    background-color: white;
+    border-left: 5px solid #3498db; /* Color stripe on the left */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s; /* Smooth animation on hover */
+}
+
+.reservation-card:hover {
+    transform: translateY(-5px); /* Slight raise effect on hover */
+    border-left-color: #2ecc71; /* Change color on hover */
+}
+
+.reservation-detail {
+    margin: 10px 0;
+    color: #34495e;
+    font-size: 1rem;
+}
+
+/* If you also want to style the date to stand out */
+.reservation-card .date {
+    display: block;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.reservation-card .time {
+    display: block;
+    background-color: #9b59b6; /* Purple background for the time */
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 5px; /* Spacing between date and time */
+    font-weight: 500;
+}

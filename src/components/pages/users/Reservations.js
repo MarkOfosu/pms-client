@@ -4,36 +4,57 @@ import '../../styles/ReservationPage.css';
 import '../../../global.css';
 import '../../styles/Button.css';
 
-const  ACTIVITY = {
-    LAP_SWIM: { name: 'Lap Swim', id: 1 },
-    AQUA_AEROBICS: { name: 'Aqua Aerobics', id: 2 },
-    SWIM_LESSONS: { name: 'Swim Lessons', id: 3 },
-        
-};
 
-const ActivitySelection = ({ selectedActivity, handleActivityChange }) => {
+
+const ActivitySelection = ({ activities, selectedActivity, handleActivityChange }) => {
     return (
         <div className="activity-selection">
             <h2>Select Activity</h2>
             <select id="activity" name="activity" value={selectedActivity} onChange={handleActivityChange}>
                 <option value="">Select an activity</option>
-                {Object.entries(ACTIVITY).map(([key, { name }]) => (
-                    <option key={key} value={key}>{name}</option> 
+                {Object.values(activities).map((activity) => (
+                    <option key={activity.id} value={activity.id}>
+                        {activity.name}
+                    </option>
                 ))}
             </select>
         </div>
     );
 };
 
-     
-
 
 const ReservationPage = () => {
+    const [activities, setActivities] = useState([]); 
     const [selectedActivity, setSelectedActivity] = useState('');
     const [selectedSlot, setSelectedSlot] = useState('');
     const [reservationError, setReservationError] = useState('');
     const [scheduleData, setScheduleData] = useState([]);
+    const [isLoadingActivities, setIsLoadingActivities] = useState(false);
     const slotRef = useRef(null);
+
+    useEffect(() => {
+        const fetchActivities = async () => {
+            setIsLoadingActivities(true);
+            try {
+                const response = await fetch('/api/auth/activities');
+                if (!response.ok) throw new Error('Failed to fetch activities');
+                const dataArray = await response.json();
+                const dataObject = dataArray.reduce((acc, activity) => {
+                    acc[activity.name] = { name: activity.name, id: activity.id };
+                    return acc;
+                }, {});
+                setActivities(dataObject);
+            } catch (error) {
+                console.error('Error fetching activities:', error);
+            } finally {
+                setIsLoadingActivities(false);
+            }
+        };
+    
+        fetchActivities();
+    }, []);
+    
+         
 
     useEffect(() => {
         const fetchSchedule = async () => {
@@ -88,12 +109,12 @@ const ReservationPage = () => {
     };
 
     const handlecreateReservation = async () => {
+        console.log(`Activity ID: ${selectedActivity}, Schedule ID: ${selectedSlot}`);
+
         if (!selectedActivity || !selectedSlot) {
-            setReservationError('Please select an activity and time slot.');
+            setReservationError('Please select slot.');
             return;
         }
-
-        const activityTypeId = ACTIVITY[selectedActivity].id;
     
         try {
             const response = await fetch('/api/auth/create/reservation', {
@@ -102,36 +123,39 @@ const ReservationPage = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    scheduleId: selectedSlot,
-                    activityTypeId: activityTypeId, 
+                    ActivityID: selectedActivity,
+                    ScheduleID: selectedSlot,
+                   
                 }),
-                credentials: 'include', 
+                credentials: 'include',
             });
     
             if (!response.ok) {
-                throw new Error('Failed to create reservation');
+                const errorData = await response.json();
+                throw new Error(`Failed to create reservation: ${errorData.message || 'Unknown error'}`);
             }
-    
+            // const responseData = await response.json();
             const selectedSchedule = scheduleData.find(schedule => schedule.ScheduleID === selectedSlot);
-                const { Day, Date, Time, Lane } = selectedSchedule;
-        
-                alert(`Reserved ${selectedActivity} on ${Day}, ${Date} at ${Time} in Lane ${Lane}`);
-                setSelectedSlot('');
-            
-            setSelectedSlot(''); 
+            alert(`Reservation created successfully for ${selectedActivity} on ${selectedSchedule.Date} at ${selectedSchedule.Time}`);
         } catch (error) {
             console.error('Error creating reservation:', error);
             setReservationError(error.message);
         }
-    };
+    }
+
+    
+    
+
+    const selectedActivityName = Object.values(activities).find(activity => activity.id.toString() === selectedActivity)?.name;
 
     return (
         <div className="page-container">
             <div className="reservation-container">
                 <h1>Make a Reservation</h1>
-                <ActivitySelection selectedActivity={selectedActivity} handleActivityChange={handleActivityChange} />
+                <ActivitySelection  activities={activities} selectedActivity={selectedActivity} handleActivityChange={handleActivityChange} />
 
-                {selectedActivity === 'LAP_SWIM' && (
+                {selectedActivityName === "Lap Swim" && (
+
                     scheduleData.length > 0 ? (
                         <div className="slots" ref={slotRef}>
                             {scheduleData.map((schedule, index) => {
@@ -162,4 +186,6 @@ const ReservationPage = () => {
     );
 };
 
+
 export default ReservationPage;
+

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import UpcomingReservations from "./UpcomingReservations";
 
 const ProfileCard = () => {
     const [profile, setProfile] = useState({
