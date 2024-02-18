@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../styles/dashboard.css';
 
 
 const AccountCard = ({ user }) => {
@@ -25,16 +26,18 @@ const AccountCard = ({ user }) => {
     }, []);
     
     return (
-        <div className="card-wrapper">
-        <div className="card-header">Account</div>
-        <div className="card-body">
-            <strong>Membership Type:</strong> {profile.membershipType}
-            <br />
-            <strong>Account Balance:</strong> ${profile.accountBalance}
-            <br />
-            <strong>Payment Due:</strong> ${profile.paymentDue}
-           
-        </div>
+        <div className="card-container">
+            <h2 className="card-header">Account</h2>
+            <div className="card-container">
+                <div className="info-container">
+                    <strong>Membership Type:</strong> {profile.membershipType}
+                    <br />
+                    <strong>Account Balance:</strong> ${profile.accountBalance}
+                    <br />
+                    <strong>Payment Due:</strong> ${profile.paymentDue}
+                
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/upcomingReservations.css'; 
 
 
 const UpcomingReservations = () => {
@@ -26,8 +25,8 @@ const UpcomingReservations = () => {
     }, []);
 
     return (
-        <div className="dashboard-container">
-            <h2 className="dashboard-header">Upcoming Reservations</h2>
+        <div className="card-container">
+            <h2 className="card-header">Upcoming Reservations</h2>
             <div className='info-container'>
                 {upcomingReservations.map((reservation) => (
                     <div key={reservation.ReservationID} className="reservation-card">

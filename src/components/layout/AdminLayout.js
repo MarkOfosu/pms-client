@@ -15,6 +15,7 @@ import NotFound from '../pages/NotFound.js';
 
 import UserRegistration from '../elements/UserRegistration.js';
 import { Outlet } from 'react-router-dom';
+import Dashboard from '../elements/Dashboard.js';
 
 
 
@@ -36,7 +37,7 @@ const AdminLayout = () => {
             <Route index element={<Profile />} />
             <Route path='createUser' element={<CreateUser />} />
             <Route path='lapSwimCheckIn' element={<LapSwimCheckIn />} />
-            <Route path='profile' element={<Profile />} />
+            <Route path='profile' element={<Dashboard />} />
             <Route path='createSchedule/lapswim' element={<LapswimSchedule />} />
             <Route path='createSchedule/aquaAerobics' element={<AquaAerobicsSchedule />} />
             <Route path='userRegistration' element={<UserRegistration />} />

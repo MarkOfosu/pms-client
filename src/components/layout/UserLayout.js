@@ -2,10 +2,10 @@
 import React from 'react';
 import {Routes, Route,Outlet } from 'react-router-dom';
 import UserNavbar from '../navigation/UserNavbar';
-import Dashboard from '../pages/users/Dashboard';
-import Account from '../pages/users/Account';
+import Dashboard from '../elements/Dashboard';
 import Reservations from '../pages/users/Reservations';
 import NotFound from '../pages/NotFound';
+import AccountCard from '../elements/AccountCard';
 
 
 const UserLayout = () => {
@@ -15,7 +15,7 @@ const UserLayout = () => {
       <Routes>
         <Route index element={<Dashboard />} />
         <Route path='profile' element={<Dashboard />} />
-        <Route path='account' element={<Account />} />
+        <Route path='account' element={<AccountCard />} />
         <Route path='reservations' element={<Reservations />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
