@@ -4,7 +4,7 @@ import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../navigation/AdminNavbar.js';
 import CreateUser from '../pages/admin/CreateUser.js';
-import LapSwimCheckIn from '../pages/admin/LapswimCheckIn.js';
+import CheckIn from '../pages/admin/CheckIn.js';
 import Profile from '../pages/admin/Profile.js';
 import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
@@ -36,7 +36,7 @@ const AdminLayout = () => {
           <Routes>
             <Route index element={<Profile />} />
             <Route path='createUser' element={<CreateUser />} />
-            <Route path='lapSwimCheckIn' element={<LapSwimCheckIn />} />
+            <Route path='checkIn' element={<CheckIn />} />
             <Route path='profile' element={<Dashboard />} />
             <Route path='createSchedule/lapswim' element={<LapswimSchedule />} />
             <Route path='createSchedule/aquaAerobics' element={<AquaAerobicsSchedule />} />

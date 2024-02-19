@@ -55,10 +55,10 @@ const AdminNavbar = () => {
                     <li className='nav-item' onClick={() => toggleDropdown(setDropdownCheckIn)}
                     onMouseEnter={() => handleMouseEnter(setDropdownCheckIn)}
                         onMouseLeave={() => handleMouseLeave(setDropdownCheckIn)}>
-                    <Link className='nav-links' >
-                        Check-In User <FontAwesomeIcon icon={faCaretDown} />
+                    <Link to='/adminLayout/checkIn' className='nav-links' >
+                        Check-In User
                     </Link>
-                    {dropdownCheckIn && <CreateUserDropdown dropdownType='checkInDropdownItems' onClick={closeMobileMenu}/>}
+                
                     </li>
 
                     <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateSchedule)}

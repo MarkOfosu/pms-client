@@ -1,0 +1,77 @@
+
+.check-in {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.check-in h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.check-in select {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.check-in h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.check-in > div {
+    margin-bottom: 20px;
+}
+
+.check-in input[type="text"] {
+    width: calc(100% - 30px);
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.reservation-card {
+    padding: 15px;
+    background-color: #ffffff;
+    border-left: 4px solid #3498db;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.reservation-card .date, .reservation-card .time {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+.reservation-card .time {
+    background-color: #9b59b6;
+}
+
+/* Adding hover effect for reservation cards */
+.reservation-card:hover {
+    background-color: #f0f0f0;
+    border-left-color: #2ecc71;
+    cursor: pointer;
+}
