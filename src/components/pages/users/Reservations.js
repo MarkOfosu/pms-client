@@ -109,12 +109,11 @@ const ReservationPage = () => {
     };
 
     const handlecreateReservation = async () => {
-        console.log(`Activity ID: ${selectedActivity}, Schedule ID: ${selectedSlot}`);
-
         if (!selectedActivity || !selectedSlot) {
             setReservationError('Please select slot.');
             return;
         }
+        console.log(selectedActivity, selectedSlot);
     
         try {
             const response = await fetch('/api/auth/create/reservation', {
@@ -123,10 +122,11 @@ const ReservationPage = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    ActivityID: selectedActivity,
-                    ScheduleID: selectedSlot,
-                   
+                    activityID: selectedActivity,
+                    scheduleID: selectedSlot,
                 }),
+
+              
                 credentials: 'include',
             });
     
@@ -134,7 +134,7 @@ const ReservationPage = () => {
                 const errorData = await response.json();
                 throw new Error(`Failed to create reservation: ${errorData.message || 'Unknown error'}`);
             }
-            // const responseData = await response.json();
+ 
             const selectedSchedule = scheduleData.find(schedule => schedule.ScheduleID === selectedSlot);
             alert(`Reservation created successfully for ${selectedActivity} on ${selectedSchedule.Date} at ${selectedSchedule.Time}`);
         } catch (error) {

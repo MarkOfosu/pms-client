@@ -24,6 +24,7 @@ const UpcomingReservations = () => {
                 setError('Failed to fetch upcoming reservations');
             } finally {
                 setIsLoading(false);
+                console.log('Upcoming Reservations:', upcomingReservations);
             }
         };
         fetchUpcomingReservations();

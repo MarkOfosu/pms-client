@@ -69,4 +69,12 @@
   button.check-in-button:hover {
     background-color: #2ecc71;
   }
+
+  .no-reservations {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    color: #999;
+}
+
   

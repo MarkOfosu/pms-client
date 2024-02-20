@@ -67,51 +67,80 @@ const CheckIn = () => {
         setSearchTerm(event.target.value);
     };
 
-    return (
+    const handleCheckIn = async (reservationId) => {
+        try {
+          const response = await fetch(`/api/auth/checkin/reservation/${reservationId}`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          const data = await response.json();
+          if (!response.ok) throw new Error(data.message || 'Failed to check in');
+          alert(`Checked in reservation ID: ${reservationId}`);
+          fetchAllReservations(); // Refresh the list after check-in
+        } catch (error) {
+          console.error('Error during check-in:', error);
+        }
+      };
+      
+
+      return (
         <div className='check-in'>
-            <h1 className='center-align'>Check In</h1>
-            <div>
-                <select onChange={handleActivityChange} value={activityType}>
-                    <option value="">Select Activity Type</option>
-                    <option value='Lap Swim'>Lap Swim</option>
-                    <option value='Aqua Aerobics'>Aqua Aerobics</option>
-                    <option value='Swim Lessons'>Swim Lessons</option>
-                    <option value='Family Swim'>Family Swim</option>
-                    <option value='Swim Team'>Swim Team</option>
-                    <option value='Water Polo'>Water Polo</option>
-                </select>
-            </div>
-            <div>
-                <h2>Upcoming Reservations</h2>
-                <div>
-                
-                    {filteredReservations.map(reservation => (
-                        <div key={reservation.ReservationID}>
-                            <p>User Name: {reservation.userName}</p>
-                            <p>Reservation ID: {reservation.ReservationID}</p>
-                            <p>User ID: {reservation.UserID}</p>
-                            <p>Activity: {reservation.ActivityName}</p>
-                            <p>Date: {reservation.Date}</p>
-                            <p>Time: {reservation.StartTime} - {reservation.EndTime}</p>
-                        </div>
-                    ))}
+          <h1 className='center-align'>Check In</h1>
+          <div className='activity-select'>
+            <select onChange={handleActivityChange} value={activityType}>
+              <option value="">Select Activity Type</option>
+              <option value='Lap Swim'>Lap Swim</option>
+              <option value='Aqua Aerobics'>Aqua Aerobics</option>
+              <option value='Swim Lessons'>Swim Lessons</option>
+              <option value='Family Swim'>Family Swim</option>
+              <option value='Swim Team'>Swim Team</option>
+              <option value='Water Polo'>Water Polo</option>
+            </select>
+          </div>
+          <div className='reservation-list'>
+            <h2>Upcoming Reservations</h2>
+            <div className='reservations-container'>
+            <div className='search-user'>
+            <h1>Search for User</h1>
+            <input
+              id='searchTerm'
+              type='text'
+              placeholder='Search by User Name or ID'
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+          </div>
+              {filteredReservations.length > 0 ? (
+                filteredReservations.map(reservation => (
+                  <div key={reservation.ReservationID} className="reservation-card">
+                    <p>User Name: {reservation.userName}</p>
+                    <p>Reservation ID: {reservation.ReservationID}</p>
+                    <p>User ID: {reservation.UserID}</p>
+                    <p>Activity: {reservation.ActivityName}</p>
+                    <p>Date: {reservation.Date}</p>
+                    <p>Time: {reservation.StartTime} - {reservation.EndTime}</p>
+                    <button 
+                      className="check-in-button" 
+                      onClick={() => handleCheckIn(reservation.ReservationID)}
+                    >
+                      Check In
+                    </button>
+                  </div>
+                ))
+              ) : (
+                <div className='no-reservations-message'>
+                  <p>No reservations found for the selected activity type or search criteria.</p>
                 </div>
+              )}
             </div>
-            <div>
-                <h1>Search for User</h1>
-                <div>
-                    <input
-                        id='searchTerm'
-                        type='text'
-                        name='searchTerm'
-                        placeholder='Search by Name or ID'
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                    />
-                </div>
-            </div>
+          </div>
         </div>
-    );
-};
+      );
+    }
+      
+             
 
 export default CheckIn;
