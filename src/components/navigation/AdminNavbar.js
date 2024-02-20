@@ -3,11 +3,10 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import Button from '../elements/Logout';
 import '../styles/Navbar.css';
 import CreateUserDropdown from './CreateUserDropdown';
 import logo from '../../resource/logo1.png'
-import UserProfile from '../elements/UserProfile';
+import UserProfile from '../../components/pages/UserProfile';
 import Logout from '../elements/Logout';
 
 
@@ -82,6 +81,11 @@ const AdminNavbar = () => {
                     <li className='nav-item'>
                         <Link to='/adminLayout/profile' className='nav-links' onClick={closeMobileMenu}>
                             Profile
+                        </Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/adminLayout/dashboard' className='nav-links' onClick={closeMobileMenu}>
+                            Dashboard
                         </Link>
                     </li>
                     <li>

@@ -15,8 +15,8 @@ const Dashboard = () => {
             {userType === 1020 ? (
                 <>
                     <UpcomingReservations />
-                    <ProfileCard />
                     <AccountCard />
+                    <ProfileCard />
                 </>
             ) 
             : userType === 1030 ? (

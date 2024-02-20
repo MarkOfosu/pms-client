@@ -1,11 +1,10 @@
-// AdminPortal.js
+// AdminLayout.js
 import React, { useEffect} from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../navigation/AdminNavbar.js';
 import CreateUser from '../pages/admin/CreateUser.js';
 import CheckIn from '../pages/admin/CheckIn.js';
-import Profile from '../pages/admin/Profile.js';
 import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
 import { useAuth } from '../../context/AuthContext.js';
@@ -16,6 +15,7 @@ import NotFound from '../pages/NotFound.js';
 import UserRegistration from '../elements/UserRegistration.js';
 import { Outlet } from 'react-router-dom';
 import Dashboard from '../elements/Dashboard.js';
+import ProfileCard from '../elements/ProfileCard.js';
 
 
 
@@ -34,10 +34,11 @@ const AdminLayout = () => {
         <>
           <AdminNavbar />
           <Routes>
-            <Route index element={<Profile />} />
+            <Route index element={<Dashboard />} />
             <Route path='createUser' element={<CreateUser />} />
             <Route path='checkIn' element={<CheckIn />} />
-            <Route path='profile' element={<Dashboard />} />
+            <Route path='profile' element={<ProfileCard />} />
+            <Route  path='dashboard' element={<Dashboard />} />
             <Route path='createSchedule/lapswim' element={<LapswimSchedule />} />
             <Route path='createSchedule/aquaAerobics' element={<AquaAerobicsSchedule />} />
             <Route path='userRegistration' element={<UserRegistration />} />

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import CreateUserDropdown from './CreateUserDropdown';
 import logo from '../../resource/logo1.png';
-import UserProfile from '../elements/UserProfile';
+import UserProfile from '../../components/pages/UserProfile';
 
 const UserNavbar = () => {
     const [click, setClick] = useState(false);
