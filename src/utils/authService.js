@@ -1,6 +1,5 @@
 // src/utils/authService.js
 
-  
 
 export const checkAuthStatus = async (login, logout) => {
     try {

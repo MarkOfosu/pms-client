@@ -12,10 +12,12 @@ import { useNavigate } from 'react-router-dom';
 import NotFound from '../pages/NotFound.js';
 
 
+
 import UserRegistration from '../elements/UserRegistration.js';
 import { Outlet } from 'react-router-dom';
 import Dashboard from '../elements/Dashboard.js';
 import ProfileCard from '../elements/ProfileCard.js';
+import Logout from '../elements/Logout.js';
 
 
 
@@ -42,6 +44,7 @@ const AdminLayout = () => {
             <Route path='createSchedule/lapswim' element={<LapswimSchedule />} />
             <Route path='createSchedule/aquaAerobics' element={<AquaAerobicsSchedule />} />
             <Route path='userRegistration' element={<UserRegistration />} />
+            <Route path='logout' element={<Logout />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
           <Footer />

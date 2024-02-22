@@ -12,18 +12,24 @@ const AccountCard = ({ user }) => {
 
     
     useEffect(() => {
-        fetch(`auth/api/profiles`)
-        .then((response) => {
-            if (!response.ok) {
-            throw new Error(response.statusText);
+        const fetchUserAccount = async () => {
+            try {
+                const response = await fetch(`/api/auth/account`);
+                if (!response.ok) {
+                    throw new Error("Error fetching user account");
+                }
+                const data = await response.json();
+                setProfile(data);
+            } catch (error) {
+                console.error("Error:", error);
             }
-            return response.json();
-        })
-        .then((profile) => {
-            setProfile(profile);
-        })
-        .catch((err) => console.error(err));
-    }, []);
+        };
+        fetchUserAccount();
+    }
+    , []);
+    
+
+       
     
     return (
         <div className="card-container">
@@ -41,5 +47,6 @@ const AccountCard = ({ user }) => {
         </div>
     );
 };
+
 
 export default AccountCard;

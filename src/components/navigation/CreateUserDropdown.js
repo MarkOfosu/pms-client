@@ -16,10 +16,10 @@ function CreateUserDropdown({ dropdownType, onClick }) {
   
 
     return (
-        <ul className='dropdown-menu'>
+        <ul onClick={onClick} className={click ? 'dropdown-menu active' : 'dropdown-menu'}>
             {dropdownItems.map((item, index) => (
                 <li key={index}>
-                    <Link className={item.cName} to={item.path} onClick={closeMobileMenu}>
+                    <Link className={item.cName} to={item.path}  >
                         {item.title}
                     </Link>
                 </li>

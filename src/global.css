@@ -65,9 +65,11 @@ body {
   /* flex-direction: column; */
   /* align-items: center; */
   /* justify-content: center; */
+
+
   
   @media screen and (max-width: 960px) {
-    margin-top: 0rem; /* Increase top margin on smaller screens if needed */
+    margin-top: 4rem; /* Increase top margin on smaller screens if needed */
   }
 }
 
@@ -122,4 +124,10 @@ body {
 .create-schedule {
   background-color: #f0f0f0;
   padding: 20px;
+}
+
+.profile-picture {
+  width: 100px;
+  height:100px;
+  object-fit: cover; /* This will ensure that the image covers the area without stretching */
 }

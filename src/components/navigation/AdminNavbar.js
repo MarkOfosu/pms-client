@@ -4,21 +4,28 @@ import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Navbar.css';
+import '../styles/Dropdown.css';
 import CreateUserDropdown from './CreateUserDropdown';
 import logo from '../../resource/logo1.png'
 import UserProfile from '../../components/pages/UserProfile';
 import Logout from '../elements/Logout';
 
+import { useAuth } from '../../context/AuthContext';
+
+
 
 
 const AdminNavbar = () => {
+;
+    const { logout } = useAuth(); 
     const [click, setClick] = useState(false);
-    const [dropdownCheckIn, setDropdownCheckIn] = useState(false);
     const [dropdownCreateSchedule, setDropdownCreateSchedule] = useState(false);
-    const [dropdownCreateUser, setDropdownCreateUser] = useState(false);
-
     const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);
+    const closeMobileMenu = () => {
+        setClick(false);
+        setDropdownCreateSchedule(false);
+    }
+ 
 
     const toggleDropdown = (dropdownSetter) => {
         if (window.innerWidth < 960) {
@@ -36,7 +43,19 @@ const AdminNavbar = () => {
 
     const handleMouseLeave = (dropdownSetter) => {
         dropdownSetter(false);
+        
     };
+
+    const handleLogoutClick = async () => {
+        try {
+            await logout(); 
+            alert('You are now logged out');
+            closeMobileMenu();
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
+    };
+
 
 
 
@@ -51,10 +70,8 @@ const AdminNavbar = () => {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
 
-                    <li className='nav-item' onClick={() => toggleDropdown(setDropdownCheckIn)}
-                    onMouseEnter={() => handleMouseEnter(setDropdownCheckIn)}
-                        onMouseLeave={() => handleMouseLeave(setDropdownCheckIn)}>
-                    <Link to='/adminLayout/checkIn' className='nav-links' >
+                    <li className='nav-item'>
+                    <Link to='/adminLayout/checkIn' className='nav-links' onClick={closeMobileMenu} >
                         Check-In User
                     </Link>
                 
@@ -66,16 +83,15 @@ const AdminNavbar = () => {
                     <Link className='nav-links'>
                         Create Schedule <FontAwesomeIcon icon={faCaretDown} />
                     </Link>
-                    {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems' onClick={closeMobileMenu}/>}
+                    {dropdownCreateSchedule && <CreateUserDropdown dropdownType='createScheduleDropdownItems'  onClick = {closeMobileMenu}/>}
                     </li>
+                
 
-                    <li className='nav-item' onClick={() => toggleDropdown(setDropdownCreateUser)}
-                    onMouseEnter={() => handleMouseEnter(setDropdownCreateUser)}
-                        onMouseLeave={() => handleMouseLeave(setDropdownCreateUser)}>
-                    <Link  className='nav-links'>
-                        Create User <FontAwesomeIcon icon={faCaretDown} />
+                    <li className='nav-item'>
+                    <Link  className='nav-links'to='/adminLayout/userRegistration' onClick={closeMobileMenu}> 
+                        Create User
                     </Link>
-                    {dropdownCreateUser && <CreateUserDropdown dropdownType='createUserDropdownItems' onClick={closeMobileMenu}/>}
+                   
 
                     </li>
                     <li className='nav-item'>
@@ -88,16 +104,17 @@ const AdminNavbar = () => {
                             Dashboard
                         </Link>
                     </li>
-                    <li>
-                        <Link to='/logout' className='nav-links-mobile'onClick={closeMobileMenu}>
-                            logout
-                        </Link>
+                    
+                    <li className='nav-item'>
+                    <div className='nav-links-mobile' onClick={handleLogoutClick}>
+                        Logout
+                    </div>
                     </li>
                     
-                </ul>
-               <UserProfile/>
-                <Logout />
-                </nav>
+                    </ul>
+                    <UserProfile/>
+                    <Logout />
+                    </nav>
 
         );
     };

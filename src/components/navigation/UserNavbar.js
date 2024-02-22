@@ -53,6 +53,11 @@ const UserNavbar = () => {
                             Reservations
                         </Link>
                     </li>
+                    <li className='nav-item'>
+                        <Link to='/userLayout/dashboard' className='nav-links' onClick={closeMobileMenu}>
+                            Dashboard
+                        </Link>
+                    </li>
                 </ul>
                 <UserProfile />
                 <Logout />

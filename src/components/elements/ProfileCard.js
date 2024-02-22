@@ -9,10 +9,10 @@ const ProfileCard = () => {
         email: "",
         address: "",
         dateOfBirth: "",
-        profilePicture: Blob,
+        profilePicture: null,
+        profilePicturePreview: null, // This will hold the preview URL
     });
     const [editMode, setEditMode] = useState(false);
-    console.log(profile);
 
     useEffect(() => {
 
@@ -30,40 +30,69 @@ const ProfileCard = () => {
         };
         fetchProfile();
     }, []);
+
+    useEffect(() => {
+        return () => {
+            if (profile.profilePicturePreview) {
+                // Cleanup the object URL on unmount or before creating a new one
+                URL.revokeObjectURL(profile.profilePicturePreview);
+            }
+        };
+    }, [profile.profilePicturePreview]);
+
+      
+    const handleInputChange = (e) => {
+        const { name, value, files } = e.target;
+        if (name === 'profilePicture') {
+            const file = files[0];
+            if (file) {
+                const objectUrl = URL.createObjectURL(file);
+                setProfile({ ...profile, profilePicture: file, profilePicturePreview: objectUrl });
+            }
+        } else {
+            setProfile({ ...profile, [name]: value });
+        }
+    };
+      
       
 
-    const handleInputChange = (e) => {
-        // Update the profile state with the new input value
-        setProfile({ ...profile, [e.target.name]: e.target.value });
-    };
+    const handleSaveProfile = async () => {
+        const formData = new FormData();
+        formData.append('email', profile.email);
+        formData.append('address', profile.address);
+        formData.append('dateOfBirth', profile.dateOfBirth);
 
-    const handleSaveProfile = () => {
-        // Send updated profile data to the server
-        fetch(`/api/auth/update/user`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(profile),
-        })
-        .then((response) => {
+        if (profile.profilePicture) {
+            formData.append('profilePicture', profile.profilePicture);
+        }
+
+        try {
+            const response = await fetch(`/api/auth/update/user`, {
+                method: 'PUT',
+                credentials: 'include',
+                body: formData, // Send as FormData
+            });
+
             if (!response.ok) {
                 throw new Error("Error updating user profile");
             }
-            // Optionally handle success
+            // Refresh profile or handle success
+            const updatedProfile = await response.json();
+            setProfile({ ...profile, profilePicture: updatedProfile.profileImage, profilePicturePreview: null });
             setEditMode(false); // Exit edit mode after saving
-        })
-        .catch((error) => {
+        } catch (error) {
             console.error("Error:", error);
-        });
+        }
     };
+      
 
     return (
         <div className="card-container">
         <h2 className="card-header">Profile</h2>
             <div className="card-container">
                 <div>
-                    <img src={profile.profilePicture} alt="profile" /> {editMode ? <input type="file" name="profilePicture" onChange={handleInputChange} /> : null }
+                <img src={profile.profilePicturePreview || profile.profilePicture} alt="profile"  className="profile-picture"/>
+                {editMode && <input type="file" name="profilePicture" onChange={handleInputChange} />}
                 </div>
             
                 <div className="info-container">

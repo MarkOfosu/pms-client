@@ -2,11 +2,11 @@
   background: var(--primary-color); /* Teal background for the dropdown */
   width: 180px;
   position: absolute;
-  top: 80px;
+  top: 70px;
   list-style: none;
   text-align: start;
   border-radius: 4px; /* Optional: to match the theme's rounded edges */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional: adding a slight shadow for depth */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Optional: adding a slight shadow for depth */ 
 }
 
 .dropdown-menu li {
@@ -20,7 +20,8 @@
 }
 
 .dropdown-menu.clicked {
-  display: none;
+  display: none; /* Hide the dropdown when not clicked */
+
 }
 
 .dropdown-link {
@@ -35,13 +36,19 @@
 
 .dropdown-link:hover {
   color: #fff; /* White text on hover for better readability */
+
 }
 
 @media screen and (max-width: 960px) {
+  
   .dropdown-menu {
-      background: var(--primary-color); /* Ensure mobile responsiveness keeps theme */
+    top: 180px; 
+    width: 100%; /* Adjust the width for smaller screens */
+    text-align: center;
+    box-shadow: 20 40px 1000px rgba(199, 71, 71, 0.1);
   }
 
+  
   .fa-caret-down {
       display: none; /* Hide caret icon on smaller screens if necessary */
   }
