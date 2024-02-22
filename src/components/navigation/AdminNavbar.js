@@ -105,7 +105,7 @@ const AdminNavbar = () => {
                         </Link>
                     </li>
                     
-                    <li className='nav-item'>
+                    <li >
                     <div className='nav-links-mobile' onClick={handleLogoutClick}>
                         Logout
                     </div>
