@@ -13,7 +13,7 @@ const LapswimSchedule = () => {
 
   useEffect(() => {
     const fetchSchedule = () => {
-      fetch('/api/auth/lapSwimSchedule')
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`)
         .then(response => {
           if (!response.ok) throw new Error('Failed to fetch lap swim schedules');
           return response.json();

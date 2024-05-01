@@ -56,7 +56,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
               return;
             }
           
-            fetch('/api/auth/create/lapSwimSchedule', {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/lapSwimSchedule`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
                     return;
                 }
                 
-                fetch(`/api/auth/create/swimLessonSchedule`, {
+                fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/swimLessonSchedule`, {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',

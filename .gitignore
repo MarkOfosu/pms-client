@@ -8,6 +8,7 @@ node_modules/
 
 # Environment files
 .env.local
+ .env.production
 .env.development.local
 .env.test.local
 .env.production.local

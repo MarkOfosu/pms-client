@@ -8,7 +8,9 @@ const UserProfile = () => {
     const { authState } = useAuth();
     const { firstName, profileImage } = authState;
 
-    const serverUrl = 'http://localhost:5001';
+    const serverUrl = process.env.NODE_ENV === 'production' 
+    ? process.env.REACT_APP_BACKEND_URL 
+    : process.env.REACT_APP_BACKEND_URL_DEV;
 
     const imageUrl = profileImage ? `${serverUrl}/uploads/${profileImage}` : person;
     console.log(imageUrl);

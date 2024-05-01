@@ -9,7 +9,7 @@ const UpcomingReservations = () => {
         setIsLoading(true);
         const fetchUpcomingReservations = async () => {
             try {
-                const response = await fetch('/api/auth/upcoming/reservations', {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/upcoming/reservations`, {
                     method: 'GET',
                     credentials: 'include',
                     headers: {

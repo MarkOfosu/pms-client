@@ -17,7 +17,7 @@ const CheckIn = () => {
 
     const fetchAllReservations = async () => {
         try {
-            const response = await fetch(`/api/auth/reservations`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/reservations`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -69,7 +69,7 @@ const CheckIn = () => {
 
     const handleCheckIn = async (reservationId) => {
         try {
-          const response = await fetch(`/api/auth/checkin/reservation/${reservationId}`, {
+          const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/checkin/reservation/${reservationId}`, {
             method: 'PUT',
             credentials: 'include',
             headers: {

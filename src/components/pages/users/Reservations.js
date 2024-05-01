@@ -36,7 +36,7 @@ const ReservationPage = () => {
         const fetchActivities = async () => {
             setIsLoadingActivities(true);
             try {
-                const response = await fetch('/api/auth/activities');
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/activities`);
                 if (!response.ok) throw new Error('Failed to fetch activities');
                 const dataArray = await response.json();
                 const dataObject = dataArray.reduce((acc, activity) => {
@@ -59,7 +59,7 @@ const ReservationPage = () => {
     useEffect(() => {
         const fetchSchedule = async () => {
             try {
-                const response = await fetch('/api/auth/lapSwimSchedule');
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch lap swim schedules');
                 }
@@ -116,7 +116,7 @@ const ReservationPage = () => {
         console.log(selectedActivity, selectedSlot);
     
         try {
-            const response = await fetch('/api/auth/create/reservation', {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/reservation`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ const ProfileCard = () => {
 
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`/api/auth/users`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/users`);
                 if (!response.ok) {
                     throw new Error("Error fetching user profile");
                 }
@@ -67,7 +67,7 @@ const ProfileCard = () => {
         }
 
         try {
-            const response = await fetch(`/api/auth/update/user`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/update/user`, {
                 method: 'PUT',
                 credentials: 'include',
                 body: formData, // Send as FormData
