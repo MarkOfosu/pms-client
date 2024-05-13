@@ -13,11 +13,19 @@ const LapswimSchedule = () => {
 
   useEffect(() => {
     const fetchSchedule = () => {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
         .then(response => {
+          console.log('response', response);
           if (!response.ok) throw new Error('Failed to fetch lap swim schedules');
           return response.json();
         })
+
         .then(data => {
           const processedData = data.map(item => {
             return {

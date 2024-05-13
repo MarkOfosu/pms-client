@@ -59,7 +59,13 @@ const ReservationPage = () => {
     useEffect(() => {
         const fetchSchedule = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
                 if (!response.ok) {
                     throw new Error('Failed to fetch lap swim schedules');
                 }
@@ -118,6 +124,7 @@ const ReservationPage = () => {
         try {
             const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/reservation`, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -125,9 +132,6 @@ const ReservationPage = () => {
                     activityID: selectedActivity,
                     scheduleID: selectedSlot,
                 }),
-
-              
-                credentials: 'include',
             });
     
             if (!response.ok) {

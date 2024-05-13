@@ -23,6 +23,7 @@ const Logout = () => {
     }
     logout();
     navigate('/');
+    
     alert('You are now logged out');
 };
        

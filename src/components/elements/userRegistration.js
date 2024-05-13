@@ -47,16 +47,17 @@ const UserRegistration = () => {
 
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/register`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
+
       },
       body: JSON.stringify(newUser),
     })
-    .then(response => {
+    .then(async response => {
       if (!response.ok) {
-        return response.json().then(data => {
-          throw new Error(data.message || 'Error registering user');
-        });
+        const data = await response.json();
+        throw new Error(data.message || 'Error registering user');
       }
       return response.json();
     })

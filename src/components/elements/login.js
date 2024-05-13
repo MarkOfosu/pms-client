@@ -22,13 +22,13 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
   
-    fetch(`/api/auth/login`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(loginData),
-      credentials: 'include' // Important for cookies
+      credentials: 'include' 
     })
     .then(response => {
       if (response.status !== 200) {

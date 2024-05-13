@@ -26,8 +26,6 @@ const CheckIn = () => {
             });
             if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
-            // Ensure data is in the expected format, potentially logging it for debugging
-            console.log(data);
             setAllReservations(data.reservations || []);
         } catch (error) {
             console.error('Failed to fetch reservations', error);
@@ -47,11 +45,10 @@ const CheckIn = () => {
             filtered = filtered.filter(
                 reservation =>
                     (reservation.userName && reservation.userName.toLowerCase().includes(lowercasedSearchTerm)) ||
-                    (reservation.UserID && reservation.UserID.toString().includes(searchTerm)) // Check if UserID exists and then compare
+                    (reservation.UserID && reservation.UserID.toString().includes(searchTerm))
             );
         }
     
-        // Sort by Date and Time
         filtered.sort((a, b) => new Date(a.Date) - new Date(b.Date) || new Date('1970/01/01 ' + a.StartTime) - new Date('1970/01/01 ' + b.StartTime));
     
         setFilteredReservations(filtered);
@@ -79,7 +76,7 @@ const CheckIn = () => {
           const data = await response.json();
           if (!response.ok) throw new Error(data.message || 'Failed to check in');
           alert(`Checked in reservation ID: ${reservationId}`);
-          fetchAllReservations(); // Refresh the list after check-in
+          fetchAllReservations(); 
         } catch (error) {
           console.error('Error during check-in:', error);
         }

@@ -14,7 +14,13 @@ const AccountCard = ({ user }) => {
     useEffect(() => {
         const fetchUserAccount = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/account`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/account`, {
+                    method: "GET",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
                 if (!response.ok) {
                     throw new Error("Error fetching user account");
                 }

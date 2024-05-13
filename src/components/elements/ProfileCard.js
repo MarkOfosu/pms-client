@@ -10,7 +10,7 @@ const ProfileCard = () => {
         address: "",
         dateOfBirth: "",
         profilePicture: null,
-        profilePicturePreview: null, // This will hold the preview URL
+        profilePicturePreview: null, 
     });
     const [editMode, setEditMode] = useState(false);
 
@@ -18,7 +18,13 @@ const ProfileCard = () => {
 
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/users`);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/users`, {
+                    method: "GET",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
                 if (!response.ok) {
                     throw new Error("Error fetching user profile");
                 }
@@ -34,7 +40,6 @@ const ProfileCard = () => {
     useEffect(() => {
         return () => {
             if (profile.profilePicturePreview) {
-                // Cleanup the object URL on unmount or before creating a new one
                 URL.revokeObjectURL(profile.profilePicturePreview);
             }
         };
@@ -70,16 +75,16 @@ const ProfileCard = () => {
             const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/update/user`, {
                 method: 'PUT',
                 credentials: 'include',
-                body: formData, // Send as FormData
+                body: formData, 
             });
 
             if (!response.ok) {
                 throw new Error("Error updating user profile");
             }
-            // Refresh profile or handle success
+
             const updatedProfile = await response.json();
             setProfile({ ...profile, profilePicture: updatedProfile.profileImage, profilePicturePreview: null });
-            setEditMode(false); // Exit edit mode after saving
+            setEditMode(false);
         } catch (error) {
             console.error("Error:", error);
         }

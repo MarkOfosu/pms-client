@@ -8,7 +8,7 @@ const HistoricalReservations = () => {
             try {
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/history`, {
                     method: 'GET',
-                    credentials: 'include', // for sending cookies in cross-origin requests
+                    credentials: 'include', 
                     headers: {
                         'Content-Type': 'application/json',
                     },
