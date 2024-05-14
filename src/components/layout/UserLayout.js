@@ -4,7 +4,7 @@ import {Routes, Route,Outlet } from 'react-router-dom';
 import UserNavbar from '../navigation/UserNavbar';
 import Dashboard from '../elements/Dashboard';
 import Reservations from '../pages/users/Reservations';
-import NotFound from '../pages/NotFound';
+import NotFound from '../elements/NotFound';
 import AccountCard from '../elements/AccountCard';
 import ProfileCard from '../elements/ProfileCard';
 

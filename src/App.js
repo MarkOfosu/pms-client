@@ -7,7 +7,7 @@ import BecomeMember from './components/pages/BeomeMember';
 import HomeNavbar from './components/navigation/HomeNavBar';
 import MemberPage from './components/layout/MemberPage';
 import './global.css';
-import NotFound from './components/pages/NotFound';
+import NotFound from './components/elements/NotFound';
 import { useAuth } from './context/AuthContext'
 import React, { useEffect } from 'react';
 
