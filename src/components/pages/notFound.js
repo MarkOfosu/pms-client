@@ -1,4 +1,4 @@
-//src/components/pages/notFound.js
+
 import React from 'react'
 import {Link} from 'react-router-dom'
 import '../../global.css'

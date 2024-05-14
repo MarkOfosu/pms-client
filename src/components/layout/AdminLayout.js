@@ -9,7 +9,7 @@ import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
 import { useAuth } from '../../context/AuthContext.js';
 import { useNavigate } from 'react-router-dom';
-import NotFound from '../pages/NotFound.js';
+import NotFound from '../pages/NotFound'
 
 
 
