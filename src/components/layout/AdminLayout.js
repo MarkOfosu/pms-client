@@ -3,7 +3,6 @@ import React, { useEffect} from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../navigation/AdminNavbar.js';
-import CreateUser from '../pages/admin/CreateUser.js';
 import CheckIn from '../pages/admin/CheckIn.js';
 import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
@@ -34,7 +33,6 @@ const AdminLayout = () => {
           <AdminNavbar />
           <Routes>
             <Route index element={<Dashboard />} />
-            <Route path='createUser' element={<CreateUser />} />
             <Route path='checkIn' element={<CheckIn />} />
             <Route path='profile' element={<ProfileCard />} />
             <Route  path='dashboard' element={<Dashboard />} />
