@@ -3,7 +3,6 @@ import React, { useEffect} from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../navigation/AdminNavbar.js';
-import CheckIn from '../pages/admin/CheckIn.js';
 import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
 import { useAuth } from '../../context/AuthContext.js';
@@ -33,7 +32,6 @@ const AdminLayout = () => {
           <AdminNavbar />
           <Routes>
             <Route index element={<Dashboard />} />
-            <Route path='checkIn' element={<CheckIn />} />
             <Route path='profile' element={<ProfileCard />} />
             <Route  path='dashboard' element={<Dashboard />} />
             <Route path='createSchedule/lapswim' element={<LapswimSchedule />} />
