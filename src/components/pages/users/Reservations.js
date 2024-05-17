@@ -29,12 +29,10 @@ const ReservationPage = () => {
     const [selectedSlot, setSelectedSlot] = useState('');
     const [reservationError, setReservationError] = useState('');
     const [scheduleData, setScheduleData] = useState([]);
-    const [isLoadingActivities, setIsLoadingActivities] = useState(false);
     const slotRef = useRef(null);
 
     useEffect(() => {
         const fetchActivities = async () => {
-            setIsLoadingActivities(true);
             try {
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/activities`);
                 if (!response.ok) throw new Error('Failed to fetch activities');
@@ -46,8 +44,6 @@ const ReservationPage = () => {
                 setActivities(dataObject);
             } catch (error) {
                 console.error('Error fetching activities:', error);
-            } finally {
-                setIsLoadingActivities(false);
             }
         };
     

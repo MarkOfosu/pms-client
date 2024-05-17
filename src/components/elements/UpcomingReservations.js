@@ -16,7 +16,6 @@ const UpcomingReservations = () => {
                         'Content-Type': 'application/json',
                     },
                 });
-                console.log('Response:', response);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setUpcomingReservations(data.upcomingReservations || []);
@@ -25,7 +24,6 @@ const UpcomingReservations = () => {
                 setError('Failed to fetch upcoming reservations');
             } finally {
                 setIsLoading(false);
-                console.log('Upcoming Reservations:', upcomingReservations);
             }
         };
         fetchUpcomingReservations();
