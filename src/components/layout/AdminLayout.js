@@ -3,7 +3,7 @@ import React, { useEffect} from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Footer from '../elements/footer.js';
 import AdminNavbar from '../navigation/AdminNavbar.js';
-import CreateUser from '../../components/pages/admin/CreateUser.js';
+import CreateUser from '../pages/admin/CreateUser.js';
 import CheckIn from '../pages/admin/CheckIn.js';
 import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
