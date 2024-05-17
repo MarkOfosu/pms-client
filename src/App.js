@@ -5,7 +5,7 @@ import AdminLayout from './components/layout/AdminLayout';
 import UserLayout from './components/layout/UserLayout';
 import BecomeMember from './components/pages/BeomeMember';
 import HomeNavbar from './components/navigation/HomeNavBar';
-import MemberPage from './components/layout/MemberPage';
+import MemberPage from './components/pages/MemberPage';
 import './global.css';
 import NotFound from './components/elements/NotFound';
 import { useAuth } from './context/AuthContext'

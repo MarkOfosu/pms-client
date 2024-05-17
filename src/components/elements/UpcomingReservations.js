@@ -16,6 +16,7 @@ const UpcomingReservations = () => {
                         'Content-Type': 'application/json',
                     },
                 });
+                console.log('Response:', response);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setUpcomingReservations(data.upcomingReservations || []);
@@ -38,16 +39,21 @@ const UpcomingReservations = () => {
         <div className="card-container">
             <h2 className="card-header">Upcoming Reservations</h2>
             <div className='info-container'>
-                {upcomingReservations.map((reservation) => (
+            {upcomingReservations.length === 0 ? (
+                <div>You have no upcoming reservations</div>
+            ) : (
+                upcomingReservations.map((reservation) => (    
                     <div key={reservation.ReservationID} className="reservation-card">
                         <p className="reservation-detail">{reservation.ActivityName}</p>
                         <span className="date">Date: {reservation.Date}</span>
                         <span className="time">Time: {reservation.StartTime} - {reservation.EndTime}</span>
                     </div>
-                ))}
+                ))
+            )}
             </div>
         </div>
     );
 }
+
 
 export default UpcomingReservations;

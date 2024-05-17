@@ -55,9 +55,10 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
               alert('Please fill out all fields');
               return;
             }
-          //${process.env.REACT_APP_BACKEND_URL}
-            fetch(`/api/auth/create/lapSwimSchedule`, {
+       
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/lapSwimSchedule`, {
               method: 'POST',
+              credentials: 'include',
               headers: {
                 'Content-Type': 'application/json',
               },
@@ -108,7 +109,7 @@ const [scheduleData, setScheduleData] = useState(initialState[typeOfSchedule]);
                     alert('Please fill out all fields');
                     return;
                 }
-                
+
                 fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/swimLessonSchedule`, {
                     method: 'POST',
                     headers: {
