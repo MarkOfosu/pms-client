@@ -9,11 +9,8 @@ import LapswimSchedule from '../pages/admin/LapswimSchedule.js';
 import AquaAerobicsSchedule from '../pages/admin/AquaAerobicsSchedule.js';
 import { useAuth } from '../../context/AuthContext.js';
 import { useNavigate } from 'react-router-dom';
-import NotFound from '../elements/NotFound.js'
-
-
-
-import UserRegistration from '../elements/UserRegistration.js';
+import NotFound from '../elements/NotFound.js';
+import UserRegistration from '../pages/admin/UserRegistration.js';
 import { Outlet } from 'react-router-dom';
 import Dashboard from '../elements/Dashboard.js';
 import ProfileCard from '../elements/ProfileCard.js';

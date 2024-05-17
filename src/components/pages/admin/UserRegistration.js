@@ -1,8 +1,8 @@
 //src/components/pages/userRegistration.js
 
 import React, { useState } from 'react';
-import '../styles/form.css';
-import '../../global.css';
+import '../../styles/form.css';
+import '../../../global.css';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -24,7 +24,6 @@ const UserRegistration = () => {
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
-  console.log(userData);
   
   const registerUser = async (e) => {
     e.preventDefault();
@@ -75,7 +74,7 @@ const UserRegistration = () => {
         confirmPassword: '',
         userType: '',
       });
-      navigate('/memberPortal');
+      navigate('/login');
     })
     .catch((error) => {
       console.error('Error:', error);

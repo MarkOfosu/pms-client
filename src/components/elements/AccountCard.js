@@ -4,10 +4,10 @@ import '../styles/dashboard.css';
 
 const AccountCard = ({ user }) => {
     const [profile, setProfile] = useState({
-        accountBalance: 0,
-        paymentDue: 0,
-        membershipType: "",
-
+        AccountBalance: 0,
+        PaymentDue: 0,
+        AccountDebit: 0,
+        AccountCredit: 0,
     });
 
     
@@ -25,7 +25,8 @@ const AccountCard = ({ user }) => {
                     throw new Error("Error fetching user account");
                 }
                 const data = await response.json();
-                setProfile(data);
+                setProfile(data.account);
+                console.log("Profile:", profile);
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -35,18 +36,14 @@ const AccountCard = ({ user }) => {
     , []);
     
 
-       
-    
     return (
         <div className="card-container">
             <h2 className="card-header">Account</h2>
             <div className="card-container">
-                <div className="info-container">
-                    <strong>Membership Type:</strong> {profile.membershipType}
+                <div className="info-container">   
+                    <strong>Account Balance:</strong> ${profile.AccountBalance}
                     <br />
-                    <strong>Account Balance:</strong> ${profile.accountBalance}
-                    <br />
-                    <strong>Payment Due:</strong> ${profile.paymentDue}
+                    <strong>Payment Due:</strong> ${profile.PaymentDue}
                 
                 </div>
             </div>
