@@ -94,32 +94,32 @@ const ProfileCard = () => {
     return (
         <div className="card-container">
         <h2 className="card-header">Profile</h2>
-            <div className="card-container">
-                <div>
-                <img src={profile.profilePicturePreview || profile.profilePicture} alt="profile"  className="profile-picture"/>
-                {editMode && <input type="file" name="profilePicture" onChange={handleInputChange} />}
-                </div>
             
-                <div className="info-container">
-                    <div className="user-name">{profile.firstName} {profile.lastName}</div>
-                    <strong>Title:</strong> 
-                    <br />
-                    <strong>Email:</strong> {editMode ? <input type="email" name="email" value={profile.email} onChange={handleInputChange} /> : profile.email}
-                    <br />
-                    <strong>Date of Birth:</strong> {profile.dateOfBirth} {editMode ? <input type="date" name="dateOfBirth" value={profile.dateOfBirth} onChange={handleInputChange} /> : null}
-                    <br />
-                    <strong>Address:</strong> {editMode ? <input type="text" name="address" value={profile.address} onChange={handleInputChange} /> : profile.address}
-                    <br />
-                    {editMode ?   
-                        <div>
-                        <button onClick={handleSaveProfile}>Save</button> 
-                        <button onClick={() => setEditMode(false)}>Cancel</button>
-                        </div>
-                        : 
-                        <button onClick={() => setEditMode(true)}>Edit</button>}
-                </div>
-            </div>
+        <div>
+        <img src={profile.profilePicturePreview || profile.profilePicture} alt="profile"  className="profile-picture"/>
+        {editMode && <input type="file" name="profilePicture" onChange={handleInputChange} />}
         </div>
+    
+        <div className="info-container">
+            <div className="user-name">{profile.firstName} {profile.lastName}</div>
+            <strong>Title:</strong> 
+            <br />
+            <strong>Email:</strong> {editMode ? <input type="email" name="email" value={profile.email} onChange={handleInputChange} /> : profile.email}
+            <br />
+            <strong>Date of Birth:</strong> {profile.dateOfBirth} {editMode ? <input type="date" name="dateOfBirth" value={profile.dateOfBirth} onChange={handleInputChange} /> : null}
+            <br />
+            <strong>Address:</strong> {editMode ? <input type="text" name="address" value={profile.address} onChange={handleInputChange} /> : profile.address}
+            <br />
+            {editMode ?   
+                <div>
+                    <button onClick={handleSaveProfile}>Save</button> 
+                    <button onClick={() => setEditMode(false)}>Cancel</button>
+                </div>
+                    : 
+                <button onClick={() => setEditMode(true)}>Edit</button>}
+        </div>
+    </div>
+       
     );
 };
 

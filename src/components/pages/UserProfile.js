@@ -1,3 +1,4 @@
+import React from 'react';
 import person from "../../resource/person.svg"
 import { useAuth } from "../../context/AuthContext"
 import '../../global.css';

@@ -1,7 +1,7 @@
-/* dashboard.css */
+/* Existing dashboard styles */
 .card-container {
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #addce5;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(46, 45, 45, 0.05);
     max-width: 800px;
@@ -11,37 +11,21 @@
 .card-header {
     text-align: center;
     margin-bottom: 30px;
-    color: #2c3e50;
+    color: #213cb7;
     font-size: 1.8rem;
 }
 
-
 .info-container {
     display: grid;
-    grid-template-columns: 1fr; /* Defaults to one column */
+    grid-template-columns: 1fr;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-/* Use a media query for larger screens */
-@media (min-width: 768px) { /* Adjust the pixel value as needed for your design */
+@media (min-width: 768px) {
     .info-container {
-        grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
+        grid-template-columns: repeat(2, 1fr);
     }
-}
-
-.reservation-card {
-    background-color: white;
-    border-left: 5px solid #3498db; /* Color stripe on the left */
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s; /* Smooth animation on hover */
-}
-
-.reservation-card:hover {
-    transform: translateY(-5px); /* Slight raise effect on hover */
-    border-left-color: #2ecc71; /* Change color on hover */
 }
 
 .reservation-detail {
@@ -50,8 +34,7 @@
     font-size: 1rem;
 }
 
-/* If you also want to style the date to stand out */
-.reservation-card .date {
+.reservation-card .date, .reservation-card .time {
     display: block;
     background-color: #3498db;
     color: white;
@@ -63,15 +46,30 @@
 }
 
 .reservation-card .time {
-    display: block;
-    background-color: #9b59b6; /* Purple background for the time */
-    color: white;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 15px;
-    margin-top: 5px; /* Spacing between date and time */
-    font-weight: 500;
+    background-color: #9b59b6;
+    margin-top: 5px;
 }
 
+/* Additional styles for historical activities */
+.activity-item {
+    background-color: #ecf0f1; /* Light gray background */
+    border: 1px solid #bdc3c7; /* Soft gray border */
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-left 0.3s;
+}
 
-  
+.activity-item:hover {
+    background-color: #e9dfe1; /* Slightly darker on hover */
+    border-left: 5px solid #3498db; /* Blue stripe similar to reservation cards */
+}
+
+.activity-summary h4, .activity-summary p {
+    margin-bottom: 0; /* Remove margin bottom for a tighter look */
+}
+
+.activity-details {
+    padding-top: 10px;
+    font-size: 0.9rem; /* Slightly smaller font size for details */
+}

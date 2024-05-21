@@ -5,6 +5,7 @@ import ProfileCard from "./ProfileCard";
 import UpcomingReservations from "./UpcomingReservations";
 import '../styles/dashboard.css';
 import { useAuth } from '../../context/AuthContext';
+import HistoricalActivities from "./HistoricalActivities";
 
 const Dashboard = () => {
     const { authState } = useAuth();
@@ -15,14 +16,18 @@ const Dashboard = () => {
             {userType === 1020 ? (
                 <>
                     <UpcomingReservations />
+                    <HistoricalActivities />
                     <AccountCard />
-                    <ProfileCard />
+                    <ProfileCard />   
                 </>
             ) 
             : userType === 1030 ? (
                 <>
-                    <ProfileCard />
+                    <UpcomingReservations />
+                    <HistoricalActivities />
                     <AccountCard />
+                    <ProfileCard />
+                    
                 </>
             )
             : (

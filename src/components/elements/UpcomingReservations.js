@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 const UpcomingReservations = () => {
     const [upcomingReservations, setUpcomingReservations] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
 
     useEffect(() => {
         setIsLoading(true);
@@ -21,7 +20,6 @@ const UpcomingReservations = () => {
                 setUpcomingReservations(data.upcomingReservations || []);
             } catch (error) {
                 console.error('Failed to fetch upcoming reservations', error);
-                setError('Failed to fetch upcoming reservations');
             } finally {
                 setIsLoading(false);
             }
@@ -29,29 +27,29 @@ const UpcomingReservations = () => {
         fetchUpcomingReservations();
     }, []);
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
-    if (upcomingReservations.length === 0) return <div>No upcoming reservations.</div>;
-
     return (
         <div className="card-container">
             <h2 className="card-header">Upcoming Reservations</h2>
             <div className='info-container'>
-            {upcomingReservations.length === 0 ? (
-                <div>You have no upcoming reservations</div>
-            ) : (
-                upcomingReservations.map((reservation) => (    
-                    <div key={reservation.ReservationID} className="reservation-card">
-                        <p className="reservation-detail">{reservation.ActivityName}</p>
-                        <span className="date">Date: {reservation.Date}</span>
-                        <span className="time">Time: {reservation.StartTime} - {reservation.EndTime}</span>
-                    </div>
-                ))
-            )}
+                {isLoading ? (
+                    <div>Loading...</div>
+                ) : (
+                    upcomingReservations.length === 0 ? (
+                        <div>You have no upcoming reservations</div>
+                    ) : (
+                        upcomingReservations.map((reservation) => (
+                            <div key={reservation.ReservationID} className="reservation-card">
+                                <p className="reservation-detail">{reservation.ActivityName}</p>
+                                <span className="date">Date: {reservation.Date}</span>
+                                <span className="time">Time: {reservation.StartTime} - {reservation.EndTime}</span>
+                            </div>
+                        ))
+                    )
+                )}
             </div>
         </div>
     );
 }
-
+    
 
 export default UpcomingReservations;
