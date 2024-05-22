@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { formatTime, formatDate } from '../../utils/utils';
 
 const UpcomingReservations = () => {
     const [upcomingReservations, setUpcomingReservations] = useState([]);
@@ -40,8 +41,8 @@ const UpcomingReservations = () => {
                         upcomingReservations.map((reservation) => (
                             <div key={reservation.ReservationID} className="reservation-card">
                                 <p className="reservation-detail">{reservation.ActivityName}</p>
-                                <span className="date">Date: {reservation.Date}</span>
-                                <span className="time">Time: {reservation.StartTime} - {reservation.EndTime}</span>
+                                <span className="date">Date: {formatDate(reservation.Date)}</span>
+                                <span className="time">Time: {formatTime(reservation.StartTime)} - {formatTime(reservation.EndTime)}</span>
                             </div>
                         ))
                     )
@@ -50,6 +51,5 @@ const UpcomingReservations = () => {
         </div>
     );
 }
-    
 
 export default UpcomingReservations;

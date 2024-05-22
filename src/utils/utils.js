@@ -17,6 +17,8 @@ export const formatDate = (utcDate) => {
   export const getDayOfWeek = (utcDate) => {
     const date = new Date(utcDate);
     return date.toLocaleDateString('en-US', { weekday: 'long' });
+
+
   };
 
 

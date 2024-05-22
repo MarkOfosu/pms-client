@@ -31,7 +31,7 @@ const LapswimSchedule = () => {
               ...item,
               Day: getDayOfWeek(item.Date),
               Date: formatDate(item.Date),
-              Time: `${formatTime(item.StartTime)} - ${formatTime(item.EndTime)}`,
+              Time: `${item.StartTime} - ${item.EndTime}`,
               Lane: item.LaneNumber,
               'Max Swimmers': item.MaxSwimmers
             };

@@ -10,15 +10,12 @@ const ActivityItem = ({ activity }) => {
             <div className="activity-summary" onClick={() => setIsExpanded(!isExpanded)}>
                 <h4>{activity.ActivityName}</h4>
                 <p>Date: {activity.Date}</p>
-                <p>Reserved by: {activity.FirstName} {activity.LastName}</p>
             </div>
             {isExpanded && (
                 <div className="activity-details">
                     <p>Details: {activity.Details}</p>
-                    <p>StartTime: {activity.StartTime}</p>
-                    <p>EndTime: {activity.EndTime}</p>
-                    <p>Email: {activity.Email}</p>
-                    {/* Include any other details you might want to show */}
+                    <p>Time: {activity.StartTime} -{activity.EndTime} </p>
+                    <p>Reserved by: {activity.FirstName} {activity.LastName}</p>
                 </div>
             )}
         </div>
