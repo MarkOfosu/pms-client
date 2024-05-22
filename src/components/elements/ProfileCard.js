@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 const ProfileCard = () => {
     const [profile, setProfile] = useState({
         lastName: "",
@@ -15,7 +14,6 @@ const ProfileCard = () => {
     const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
-
         const fetchProfile = async () => {
             try {
                 const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/users`, {
@@ -29,7 +27,10 @@ const ProfileCard = () => {
                     throw new Error("Error fetching user profile");
                 }
                 const data = await response.json();
-                setProfile(data);
+                setProfile({
+                    ...data,
+                    profilePicturePreview: data.profileImage // Assuming the API returns the profile image URL as profileImage
+                });
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -45,7 +46,6 @@ const ProfileCard = () => {
         };
     }, [profile.profilePicturePreview]);
 
-      
     const handleInputChange = (e) => {
         const { name, value, files } = e.target;
         if (name === 'profilePicture') {
@@ -58,8 +58,6 @@ const ProfileCard = () => {
             setProfile({ ...profile, [name]: value });
         }
     };
-      
-      
 
     const handleSaveProfile = async () => {
         const formData = new FormData();
@@ -83,47 +81,59 @@ const ProfileCard = () => {
             }
 
             const updatedProfile = await response.json();
-            setProfile({ ...profile, profilePicture: updatedProfile.profileImage, profilePicturePreview: null });
+            setProfile({ 
+                ...profile, 
+                profilePicture: updatedProfile.profileImage || profile.profilePicture,
+                profilePicturePreview: null 
+            });
             setEditMode(false);
         } catch (error) {
             console.error("Error:", error);
         }
     };
-      
 
     return (
         <div className="card-container">
-        <h2 className="card-header">Profile</h2>
+            <h2 className="card-header">Profile</h2>
             
-        <div>
-        <img src={profile.profilePicturePreview || profile.profilePicture} alt="profile"  className="profile-picture"/>
-        {editMode && <input type="file" name="profilePicture" onChange={handleInputChange} />}
-        </div>
+            <div>
+                <img 
+                    src={profile.profilePicturePreview || profile.profilePicture} 
+                    alt="profile"  
+                    className="profile-picture"
+                />
+                {editMode && <input type="file" name="profilePicture" onChange={handleInputChange} />}
+            </div>
     
-        <div className="info-container">
-            <div className="user-name">{profile.firstName} {profile.lastName}</div>
-            <strong>Title:</strong> 
-            <br />
-            <strong>Email:</strong> {editMode ? <input type="email" name="email" value={profile.email} onChange={handleInputChange} /> : profile.email}
-            <br />
-            <strong>Date of Birth:</strong> {profile.dateOfBirth} {editMode ? <input type="date" name="dateOfBirth" value={profile.dateOfBirth} onChange={handleInputChange} /> : null}
-            <br />
-            <strong>Address:</strong> {editMode ? <input type="text" name="address" value={profile.address} onChange={handleInputChange} /> : profile.address}
-            <br />
+            <div className="info-container">
+                <div className="user-name">{profile.firstName} {profile.lastName}</div>
+                <strong>Title:</strong> {profile.title}
+                <br />
+                <strong>Email:</strong> {editMode ? 
+                    <input type="email" name="email" value={profile.email} onChange={handleInputChange} /> 
+                    : profile.email}
+                <br />
+                <strong>Date of Birth:</strong> {editMode ? 
+                    <input type="date" name="dateOfBirth" value={profile.dateOfBirth} onChange={handleInputChange} /> 
+                    : profile.dateOfBirth}
+                <br />
+                <strong>Address:</strong> {editMode ? 
+                    <input type="text" name="address" value={profile.address} onChange={handleInputChange} /> 
+                    : profile.address}
+                <br />
+            </div>
+            <div>
+                {editMode ?   
+                    <div>
+                        <button onClick={handleSaveProfile} className="btn">Save</button> 
+                        <span> </span>
+                        <button onClick={() => setEditMode(false)} className="btn">Cancel</button>
+                    </div>
+                : 
+                    <button onClick={() => setEditMode(true)} className="btn">Update</button>
+                }
+            </div>
         </div>
-        <div >
-            {editMode ?   
-                <div>
-                    <button onClick={handleSaveProfile} className="btn">Save</button> 
-                    <span> </span>
-                    <button onClick={() => setEditMode(false)} className="btn">Cancel</button>
-                </div>
-                    : 
-                <button onClick={() => setEditMode(true)} className="btn">Update</button>}
-        </div>
-
-    </div>
-       
     );
 };
 
