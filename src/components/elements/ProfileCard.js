@@ -110,14 +110,18 @@ const ProfileCard = () => {
             <br />
             <strong>Address:</strong> {editMode ? <input type="text" name="address" value={profile.address} onChange={handleInputChange} /> : profile.address}
             <br />
+        </div>
+        <div >
             {editMode ?   
                 <div>
-                    <button onClick={handleSaveProfile}>Save</button> 
-                    <button onClick={() => setEditMode(false)}>Cancel</button>
+                    <button onClick={handleSaveProfile} className="btn">Save</button> 
+                    <span> </span>
+                    <button onClick={() => setEditMode(false)} className="btn">Cancel</button>
                 </div>
                     : 
-                <button onClick={() => setEditMode(true)}>Edit</button>}
+                <button onClick={() => setEditMode(true)} className="btn">Update</button>}
         </div>
+
     </div>
        
     );
