@@ -86,6 +86,7 @@ const CheckIn = () => {
                     <option value='Swim Team'>Swim Team</option>
                     <option value='Water Polo'>Water Polo</option>
                 </select>
+                <span></span> <span></span> <span></span> <span></span> <span></span>
                 <input
                     type='text'
                     placeholder='Search by User Name or ID'
