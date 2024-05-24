@@ -1,8 +1,6 @@
-
 /* global.css */
-
 :root {
-  --background-image: url('./resource/background.jpg');
+  --background-image: url('./resource/background4.png');
   --font-color: rgb(62, 54, 217);
   --font-size-large: 100px;
   --font-size-medium: 2rem;
@@ -22,12 +20,10 @@
 
 body {
   padding-top: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
-
   padding-bottom: var(--navbar-height); /* Add padding to body to prevent overlap with fixed navbar */
-  }
+}
 
-
-.home, .becomeMember, .notFound, .memberPage{
+.home, .becomeMember, .notFound, .memberPage {
   background-image: var(--background-image);
   background-position: center;
   background-size: cover;
@@ -45,23 +41,24 @@ body {
 
 @media screen and (max-width: 960px) {
   .home, .becomeMember, .notFound, .memberPage {
-    font-size: var(--font-size-small);
+      font-size: var(--font-size-small);
   }
 }
 
 .page-container {
-  margin-top: 0; 
+  margin-top: 0;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: var(--font-color);
   padding: 2%;
-
   overflow-y: scroll;
-  margin-bottom: var( --margin-bottom-small);
-  
-  @media screen and (max-width: 960px) {
-    margin-top: 4rem; /* Increase top margin on smaller screens if needed */
+  margin-bottom: var(--margin-bottom-small);
+}
+
+@media screen and (max-width: 960px) {
+  .page-container {
+      margin-top: 4rem; /* Increase top margin on smaller screens if needed */
   }
 }
 
@@ -69,24 +66,23 @@ body {
   display: flex;
   flex-direction: column;
   color: #fff;
+}
 
-  img {
-    display: block;
-    margin: 0 auto;
-    width: 30px;  
-  }
+.userProfile__container img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
+}
 
-  h1 {
-    margin: 0 auto;
-    font-size: 1.2rem;
-  }
+.userProfile__container h1 {
+  margin: 0 auto;
+  font-size: 1.2rem;
 }
 
 .CreateUser, .createAdmin, .lapSwimCheckIn, .recordPayment {
   color: #fff;
   font-size: var(--font-size-large);
 }
-
 
 /* If you need a default font size for other pages */
 .default-font-size {
@@ -96,7 +92,7 @@ body {
 /* Responsive font size */
 @media screen and (max-width: 960px) {
   .default-font-size {
-    font-size: var(--font-size-small);
+      font-size: var(--font-size-small);
   }
 }
 
@@ -112,7 +108,6 @@ body {
   text-align: center;
 }
 
-
 .create-schedule {
   background-color: #f0f0f0;
   padding: 20px;
@@ -120,6 +115,6 @@ body {
 
 .profile-picture {
   width: 100px;
-  height:100px;
-  object-fit: cover; 
+  height: 100px;
+  object-fit: cover;
 }
