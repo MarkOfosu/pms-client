@@ -115,7 +115,6 @@ const ReservationPage = () => {
             setReservationError('Please select slot.');
             return;
         }
-        console.log(selectedActivity, selectedSlot);
 
         try {
             const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/reservation`, {

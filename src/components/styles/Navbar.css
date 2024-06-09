@@ -1,16 +1,16 @@
 :root {
-  --primary-color:   #1f357d; /* Teal color for the theme */
-  --secondary-color: #ff7f50; /* Orange color for the theme */
-  --hover-color: #506c7d; /* Darker teal for hover effects */
+  --primary-color:   #1f357d; 
+  --secondary-color: #ff7f50; 
+  --hover-color: #506c7d; 
 }
 
 .logo {
   width: 70px;
   height: 70px;
   object-fit: cover;
-  border-radius: 25%; /* Slightly more rounded */
+  border-radius: 25%; 
   border: 1px solid #fff;
-  box-shadow: 0 0 8px rgba(178, 223, 219, 0.5); /* Soft shadow with teal color */
+  box-shadow: 0 0 8px rgba(178, 223, 219, 0.5);
   transition: all 0.3s ease-in-out;
  
 }
@@ -24,7 +24,7 @@
   font-size: 1.2rem;
   position: fixed; 
   top: 0; /* Stick to the top */
-  width: 100%; /* Full width */
+  width: 100%;
   z-index: 50; 
   padding-right: 20px;
 }
@@ -45,7 +45,7 @@
   list-style: none;
   text-align: center;
   width: 70vw;
-  justify-content: center;
+  justify-content: right;
   margin-right: 2rem;
 }
 

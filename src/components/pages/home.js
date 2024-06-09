@@ -2,8 +2,8 @@ import React from 'react';
 import '../styles/home.css';
 import '../../global.css';
 import Footer from '../../components/elements/footer';
-import Slider from '../../components/elements/Slider';
-import '../styles/slider.css';
+import NavigationCard from '../elements/NavigationCard';
+// import '../styles/slider.css';
 
 // <header className="page-header relative full-page-section">
 // <h1 data-text="Welcome">Welcome</h1>
@@ -13,7 +13,7 @@ const Home = () => {
   return (
       <>
           <section className="slider-section full-page-section">
-          <Slider /> 
+          <NavigationCard /> 
           </section>
           <Footer />
       </>

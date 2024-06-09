@@ -1,51 +1,133 @@
-/* src/pages/BecomeMember.css */
-.becomeMember {
+header {
     text-align: center;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f0f8ff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 4rem 2rem;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+.section {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.section-dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.section-light {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.benefits,
-.plans,
-.cta {
-    margin-bottom: 20px;
-}
-
-h1, h2 {
     color: #333;
 }
 
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefits, .plans {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.benefits:hover, .plans:hover {
+    transform: translateY(-5px);
+}
+
+.benefits h2, .plans h2 {
+    color: #007BFF;
+}
+
 .benefits ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    text-align: left;
+}
+
+.benefits ul li {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.benefits ul li::before {
+    content: "✔";
+    color: #4CAF50;
+    position: absolute;
+    left: 0;
 }
 
 .plan {
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.plan h3 {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 0.5rem;
+}
+
+.plan p {
+    font-size: 1rem;
+    color: #666;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
+    margin-top: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     color: #fff;
+    background-color: #4b91dc;
+    border-radius: 12px;
     text-decoration: none;
-    border-radius: 4px;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
     background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .benefits, .plans {
+        flex: 1;
+        margin: 1rem;
+    }
 }
