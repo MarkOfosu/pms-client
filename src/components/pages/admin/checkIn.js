@@ -18,7 +18,7 @@ const CheckIn = () => {
 
     const fetchAllReservations = async () => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/reservations`, {
+            const response = await fetch(`/api/auth/reservations`, {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -35,12 +35,12 @@ const CheckIn = () => {
 
     const filterAndSortReservations = () => {
         const filtered = allReservations.filter(reservation => {
-            return (activityType ? reservation.ActivityName === activityType : true) &&
-                   (searchTerm ? reservation.userName.toLowerCase().includes(searchTerm.toLowerCase()) || reservation.UserID.toString().includes(searchTerm) : true);
+            return (activityType ? reservation.activityname === activityType : true) &&
+                   (searchTerm ? reservation.username.toLowerCase().includes(searchTerm.toLowerCase()) || reservation.userid.toString().includes(searchTerm) : true);
         });
 
-        const upcoming = filtered.filter(res => !res.IsCheckedIn);
-        const checkedIn = filtered.filter(res => res.IsCheckedIn);
+        const upcoming = filtered.filter(res => !res.ischeckedin);
+        const checkedIn = filtered.filter(res => res.ischeckedin);
 
         setUpcomingReservations(upcoming);
         setCheckedInReservations(checkedIn);
@@ -56,7 +56,7 @@ const CheckIn = () => {
 
     const handleCheckIn = async (reservationId) => {
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/checkin/reservation/${reservationId}`, {
+            const response = await fetch(`/api/auth/checkin/reservation/${reservationId}`, {
                 method: 'PUT',
                 credentials: 'include',
                 headers: {
@@ -97,15 +97,15 @@ const CheckIn = () => {
             <h2>Upcoming Reservations</h2>
             <div className='reservations-container'>
                 {upcomingReservations.map(reservation => (
-                    <div key={reservation.ReservationID} className="reservation-card">
-                        <p>User Name: {reservation.userName}</p>
-                        <p>Reservation ID: {reservation.ReservationID}</p>
-                        <p>Activity: {reservation.ActivityName}</p>
-                        <p>Date: {reservation.Date}</p>
-                        <p>Time: {reservation.StartTime} - {reservation.EndTime}</p>
+                    <div key={reservation.reservationid} className="reservation-card">
+                        <p>User Name: {reservation.username}</p>
+                        <p>Reservation ID: {reservation.reservationid}</p>
+                        <p>Activity: {reservation.activityname}</p>
+                        <p>Date: {reservation.date}</p>
+                        <p>Time: {reservation.starttime} - {reservation.endtime}</p>
                         <button 
                           className="check-in-button" 
-                          onClick={() => handleCheckIn(reservation.ReservationID)}
+                          onClick={() => handleCheckIn(reservation.reservationid)}
                         >
                           Check In
                         </button>
@@ -115,12 +115,12 @@ const CheckIn = () => {
             <h2>Checked In Reservations</h2>
             <div className='reservations-container'>
                 {checkedInReservations.map(reservation => (
-                    <div key={reservation.ReservationID} className="reservation-card">
-                        <p>User Name: {reservation.userName}</p>
-                        <p>Reservation ID: {reservation.ReservationID}</p>
-                        <p>Activity: {reservation.ActivityName}</p>
-                        <p>Date: {reservation.Date}</p>
-                        <p>Time: {reservation.StartTime} - {reservation.EndTime}</p>
+                    <div key={reservation.reservationid} className="reservation-card">
+                        <p>User Name: {reservation.username}</p>
+                        <p>Reservation ID: {reservation.reservationid}</p>
+                        <p>Activity: {reservation.activityname}</p>
+                        <p>Date: {reservation.date}</p>
+                        <p>Time: {reservation.starttime} - {reservation.endtime}</p>
                         <p style={{ color: 'green' }}>Checked In</p>
                     </div>
                 ))}

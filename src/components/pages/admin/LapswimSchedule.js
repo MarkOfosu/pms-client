@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import '../../../global.css';
 import CreateSchedule from './CreateSchedule';
-import { formatDate } from '../../../utils/utils';
-import { formatTime } from '../../../utils/utils';
-import { getDayOfWeek } from '../../../utils/utils';
-import {CurrentSchedule} from '../../elements/CurrentSchedule';
-
-
+import { formatDate, formatTime, getDayOfWeek } from '../../../utils/utils';
+import { CurrentSchedule } from '../../elements/CurrentSchedule';
 
 const LapswimSchedule = () => {
   const [scheduleData, setScheduleData] = useState([]);
 
   useEffect(() => {
     const fetchSchedule = () => {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`, {
+      fetch(`/api/auth/lapSwimSchedule`, {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -21,19 +17,18 @@ const LapswimSchedule = () => {
         },
       })
         .then(response => {
+          console.log('Received data:', response);
           if (!response.ok) throw new Error('Failed to fetch lap swim schedules');
           return response.json();
         })
-
         .then(data => {
           const processedData = data.map(item => {
             return {
-              ...item,
-              Day: getDayOfWeek(item.Date),
-              Date: formatDate(item.Date),
-              Time: `${item.StartTime} - ${item.EndTime}`,
-              Lane: item.LaneNumber,
-              'Max Swimmers': item.MaxSwimmers
+              Day: getDayOfWeek(item.date),
+              Date: formatDate(item.date),
+              Time: `${formatTime(item.starttime)} - ${formatTime(item.endtime)}`,
+              Lane: item.lanenumber,
+              'Max Swimmers': item.maxswimmers
             };
           });
           setScheduleData(processedData);
@@ -46,16 +41,13 @@ const LapswimSchedule = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-
   return (
     <div className='page-container'>
       <div className='lapswimSchedules'>
         <CurrentSchedule scheduleData={scheduleData} />
         <br /><br />
-        <CreateSchedule typeOfSchedule="lapSwimSchedule"  />
-      
+        <CreateSchedule typeOfSchedule="lapSwimSchedule" />
       </div>
-
     </div>
   );
 }

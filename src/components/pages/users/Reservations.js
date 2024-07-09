@@ -31,7 +31,7 @@ const ReservationPage = () => {
     useEffect(() => {
         const fetchActivities = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/activities`);
+                const response = await fetch(`/api/auth/activities`);
                 if (!response.ok) throw new Error('Failed to fetch activities');
                 const dataArray = await response.json();
                 const dataObject = dataArray.reduce((acc, activity) => {
@@ -55,25 +55,23 @@ const ReservationPage = () => {
     useEffect(() => {
         const fetchSchedule = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/lapSwimSchedule`, {
+                const response = await fetch(`/api/auth/lapSwimSchedule`, {
                     method: 'GET',
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
-                if (!response.ok) {
-                    throw new Error('Failed to fetch lap swim schedules');
-                }
+                if (!response.ok) throw new Error('Failed to fetch lap swim schedules');
                 const data = await response.json();
                 const processedData = data.map(item => ({
                     ...item,
-                    Day: getDayOfWeek(item.Date),
-                    Date: formatDate(item.Date),
-                    Time: `${formatTime(item.StartTime)} - ${formatTime(item.EndTime)}`,
-                    Lane: item.LaneNumber,
-                    'Max Swimmers': item.MaxSwimmers,
-                    ScheduleID: item.ScheduleID
+                    Day: getDayOfWeek(item.date),
+                    Date: formatDate(item.date),
+                    Time: `${formatTime(item.starttime)} - ${formatTime(item.endtime)}`,
+                    Lane: item.lanenumber,
+                    'Max Swimmers': item.maxswimmers,
+                    ScheduleID: item.scheduleid
                 }));
                 setScheduleData(processedData);
             } catch (error) {
@@ -110,14 +108,14 @@ const ReservationPage = () => {
         setReservationError('');
     };
 
-    const handlecreateReservation = async () => {
+    const handleCreateReservation = async () => {
         if (!selectedActivity || !selectedSlot) {
             setReservationError('Please select slot.');
             return;
         }
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/create/reservation`, {
+            const response = await fetch(`/api/auth/create/reservation`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
@@ -174,7 +172,7 @@ const ReservationPage = () => {
                 )}
                 <br />
                 <br />
-                <button onClick={handlecreateReservation} className='btn'>Reserve</button>
+                <button onClick={handleCreateReservation} className='btn'>Reserve</button>
                 {reservationError && <p className="error">{reservationError}</p>}
             </div>
         </div>

@@ -22,7 +22,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
   
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, { 
+    fetch(`/api/auth/login`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -33,7 +33,7 @@ const HistoricalActivities = ({ userId }) => {
         const fetchHistoricalActivities = async () => {
             setLoading(true);
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/history`, {
+                const response = await fetch(`/api/auth/history`, {
                     method: 'GET',
                     credentials: 'include',
                     headers: {

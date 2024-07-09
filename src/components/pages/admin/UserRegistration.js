@@ -44,7 +44,7 @@ const UserRegistration = () => {
       userType: userData.userType,
     };
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/register`, {
+    fetch(`/api/auth/register`, {
       method: 'POST',
       credentials: 'include',
       headers: {

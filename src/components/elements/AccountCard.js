@@ -12,7 +12,7 @@ const AccountCard = ({ user }) => {
     useEffect(() => {
         const fetchUserAccount = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/account`, {
+                const response = await fetch(`/api/auth/account`, {
                     method: "GET",
                     credentials: "include",
                     headers: {

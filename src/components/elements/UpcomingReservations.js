@@ -9,7 +9,7 @@ const UpcomingReservations = () => {
         setIsLoading(true);
         const fetchUpcomingReservations = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/upcoming/reservations`, {
+                const response = await fetch(`/api/auth/upcoming/reservations`, {
                     method: 'GET',
                     credentials: 'include',
                     headers: {
@@ -39,10 +39,10 @@ const UpcomingReservations = () => {
                         <div>You have no upcoming reservations</div>
                     ) : (
                         upcomingReservations.map((reservation) => (
-                            <div key={reservation.ReservationID} className="reservation-card">
-                                <p className="reservation-detail">{reservation.ActivityName}</p>
-                                <span className="date">Date: {formatDate(reservation.Date)}</span>
-                                <span className="time">Time: {formatTime(reservation.StartTime)} - {formatTime(reservation.EndTime)}</span>
+                            <div key={reservation.reservationid} className="reservation-card">
+                                <p className="reservation-detail">{reservation.activityname}</p>
+                                <span className="date">Date: {formatDate(reservation.date)}</span>
+                                <span className="time">Time: {formatTime(reservation.starttime)} - {formatTime(reservation.endtime)}</span>
                             </div>
                         ))
                     )
