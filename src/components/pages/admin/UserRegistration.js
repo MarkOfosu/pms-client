@@ -61,7 +61,6 @@ const UserRegistration = () => {
       return response.json();
     })
     .then(data => {
-      console.log('Success:', data);
       alert('User registered successfully');
       setUserData({
         userName: '',

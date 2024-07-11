@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { formatDate, formatTime } from '../../../utils/utils';
 import '../../styles/CheckIn.css';
 
 const CheckIn = () => {
@@ -101,8 +102,8 @@ const CheckIn = () => {
                         <p>User Name: {reservation.username}</p>
                         <p>Reservation ID: {reservation.reservationid}</p>
                         <p>Activity: {reservation.activityname}</p>
-                        <p>Date: {reservation.date}</p>
-                        <p>Time: {reservation.starttime} - {reservation.endtime}</p>
+                        <p>Date: {formatDate(reservation.date)}</p>
+                        <p>Time: {formatTime(reservation.starttime)} - {formatTime(reservation.endtime)}</p>
                         <button 
                           className="check-in-button" 
                           onClick={() => handleCheckIn(reservation.reservationid)}
@@ -119,8 +120,8 @@ const CheckIn = () => {
                         <p>User Name: {reservation.username}</p>
                         <p>Reservation ID: {reservation.reservationid}</p>
                         <p>Activity: {reservation.activityname}</p>
-                        <p>Date: {reservation.date}</p>
-                        <p>Time: {reservation.starttime} - {reservation.endtime}</p>
+                        <p>Date: {formatDate(reservation.date)}</p>
+                        <p>Time: {formatTime(reservation.starttime)} - {formatTime(reservation.endtime)}</p>
                         <p style={{ color: 'green' }}>Checked In</p>
                     </div>
                 ))}

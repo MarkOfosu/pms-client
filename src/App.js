@@ -22,7 +22,7 @@ function App() {
     const user = localStorage.getItem('user');
     if (user) {
       login(JSON.parse(user));
-      navigate(user.userType === 1030 ? '/adminLayout' : user.userType === 1020 ? '/userLayout' : '/memberPage');
+      navigate(user.userType === 1030 ? '/adminLayout' : user.userType === 1020 ? '/userLayout' : '/');
     }
     else {
       logout();

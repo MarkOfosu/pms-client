@@ -18,7 +18,13 @@ const UpcomingReservations = () => {
                 });
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
-                setUpcomingReservations(data.upcomingReservations || []);
+                const processedData = data.upcomingReservations.map((reservation) => ({
+                    ...reservation,
+                    date: formatDate(reservation.date),
+                    starttime: formatTime(reservation.starttime),
+                    endtime: formatTime(reservation.endtime)
+                }));
+                setUpcomingReservations(processedData || []);
             } catch (error) {
                 console.error('Failed to fetch upcoming reservations', error);
             } finally {
@@ -41,8 +47,8 @@ const UpcomingReservations = () => {
                         upcomingReservations.map((reservation) => (
                             <div key={reservation.reservationid} className="reservation-card">
                                 <p className="reservation-detail">{reservation.activityname}</p>
-                                <span className="date">Date: {formatDate(reservation.date)}</span>
-                                <span className="time">Time: {formatTime(reservation.starttime)} - {formatTime(reservation.endtime)}</span>
+                                <span className="date">Date: {reservation.date}</span>
+                                <span className="time">Time: {reservation.starttime} - {reservation.endtime}</span>
                             </div>
                         ))
                     )

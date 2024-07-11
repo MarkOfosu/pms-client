@@ -7,6 +7,7 @@ import Reservations from '../pages/users/Reservations';
 import NotFound from '../elements/NotFound';
 import AccountCard from '../elements/AccountCard';
 import ProfileCard from '../elements/ProfileCard';
+import Home from '../pages/home';
 
 
 const UserLayout = () => {
@@ -19,7 +20,7 @@ const UserLayout = () => {
         <Route path='dashboard' element={<Dashboard />} />
         <Route path='account' element={<AccountCard />} />
         <Route path='reservations' element={<Reservations />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<Home />} />
       </Routes>
     </>
   );

@@ -5,8 +5,6 @@ import '../styles/Button.css';
 import logoutIcon from '../../resource/logout.svg';
 import { Link } from 'react-router-dom';
 
-
-
 const Logout = () => {
     const { authState, logout } = useAuth();
 

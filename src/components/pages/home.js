@@ -13,7 +13,7 @@ const Home = () => {
   return (
       <>
           <section className="slider-section full-page-section">
-          <NavigationCard /> 
+           <NavigationCard /> 
           </section>
           <Footer />
       </>

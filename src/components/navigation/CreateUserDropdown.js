@@ -6,14 +6,8 @@ import  React, { useState } from 'react';
 
 function CreateUserDropdown({ dropdownType, onClick }) {
     const [click, setClick] = useState(false);
-    const closeMobileMenu = () => setClick(!click);
-
-
-
-
+    // const closeMobileMenu = () => setClick(!click);
     const dropdownItems = MenuItems[dropdownType]; // use the appropriate dropdown items based on the passed type
-
-  
 
     return (
         <ul onClick={onClick} className={click ? 'dropdown-menu active' : 'dropdown-menu'}>

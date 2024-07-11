@@ -17,7 +17,6 @@ const LapswimSchedule = () => {
         },
       })
         .then(response => {
-          console.log('Received data:', response);
           if (!response.ok) throw new Error('Failed to fetch lap swim schedules');
           return response.json();
         })

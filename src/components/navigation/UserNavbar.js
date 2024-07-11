@@ -9,10 +9,15 @@ import '../styles/Navbar.css';
 import CreateUserDropdown from './CreateUserDropdown';
 import logo from '../../resource/logo1.png';
 import UserProfile from '../../components/pages/UserProfile';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 const UserNavbar = () => {
-    const [click, setClick] = useState(false);
 
+    const navigate = useNavigate();
+    const { logout } = useAuth(); 
+    const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
@@ -26,6 +31,17 @@ const UserNavbar = () => {
 
     const handleMouseLeave = (dropdownSetter) => {
         dropdownSetter(false);
+    };
+
+    const handleLogoutClick = async () => {
+        try {
+            await logout(); 
+            alert('You are now logged out');
+            closeMobileMenu();
+            navigate('/');
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
     };
 
     return (
@@ -57,6 +73,11 @@ const UserNavbar = () => {
                         <Link to='/userLayout/dashboard' className='nav-links' onClick={closeMobileMenu}>
                             Dashboard
                         </Link>
+                    </li>
+                    <li>
+                    <div className='nav-links-mobile' onClick={handleLogoutClick}>
+                        Logout
+                    </div>
                     </li>
                 </ul>
                 <UserProfile />

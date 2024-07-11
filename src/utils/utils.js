@@ -1,7 +1,7 @@
 // utils/utils.js
 export const formatDate = (utcDate) => {
   if (!utcDate) return 'Invalid date';
-  const date = new Date(utcDate);
+  const date = new Date(utcDate.split('T')[0]); // Remove the time part
   const options = { month: 'short', day: 'numeric', year: 'numeric' };
   return date.toLocaleDateString('en-US', options);
 };
@@ -17,6 +17,6 @@ export const formatTime = (timeString) => {
 
 export const getDayOfWeek = (utcDate) => {
   if (!utcDate) return 'Invalid date';
-  const date = new Date(utcDate);
+  const date = new Date(utcDate.split('T')[0]); // Remove the time part
   return date.toLocaleDateString('en-US', { weekday: 'long' });
 };
