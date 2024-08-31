@@ -1,8 +1,8 @@
 ### Pool Management System Client (pms-client)
-This is the backend server for the Pool Management System, an ongoing project for managing a pool facility, including user registrations, reservations, and more.
+This is the frontend for a Pool Management System, an ongoing project for managing a pool facility, including user registrations, reservations, and more.
 
 ### Test deployed app @ https://www.pool-ms.com/
-### Test User Credentials
+### Test with user credentials
 ### Admin User
 Username: admin
 
@@ -77,18 +77,16 @@ PUBLIC_DATE_OF_BIRTH='1980-01-01'
 PUBLIC_ADDRESS='User Address'
 Build the client:
 
-### create and start a  postgres Db and update the env file with the right credentials
-
-
-### Update frontend build 
-#The frontend is being served at the backend
-# build to update the build at the backend
-npm run build at the cleint directory
 
 ### Start the Server in the server directory
 npm run server
 
+
+### Run the client locally:
+npm run start
+
+
 #### Open the running app
-http://localhost:5000.
+http://localhost:3000.
 
 
