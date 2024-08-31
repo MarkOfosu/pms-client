@@ -1,57 +1,61 @@
-### Pool Management System Client (pms-client)
+# `Pool Management System Client (pms-client)`
+
 This is the frontend for a Pool Management System, an ongoing project for managing a pool facility, including user registrations, reservations, and more.
 
-### Test deployed app @ https://www.pool-ms.com/
-### Test with user credentials
-### Admin User
+## 🌐 Test Deployed Application @ https://www.pool-ms.com/
+```plaintext
+
+Test Credentials
+Admin User
 Username: admin
 
 Password: 123456
 
-### Regular User
+Regular User
 Username: user1
 
 Password: 123456
 
-
-### Features
+✨ Features
 User registration and authentication
 Reservation system for pool activities
 Payment account management
 Check-in and activity tracking
 
 
-### Technologies Used
-React Js
+🛠 Technologies Used
+React.js
 JavaScript
-Pure Css
+Pure CSS
 
-### Getting Started:
 
+🚀 Getting Started
 Prerequisites
-Node.js
-PostgreSQL instance
+Ensure you have the following installed:
 
-### Clone the repository pms-server and pms-client in the same project directory 
+Node.js
+PostgreSQL
+
+1. Clone the Repositories
+Clone the client repository into the same project directory:
+
 git clone https://github.com/your-username/pms-server.git
 git clone https://github.com/your-username/pms-client.git
 
-Install the dependencies for both the client and server:
+2. Install Dependencies
+Navigate into both the client and server directories and install the necessary dependencies:
+
+# For the client
+cd ../pms-client
 npm install
 
 
-### Create a .env with sample vairriables from .env.example
+3. Run the Client Locally
+Navigate to the `pms-client` directory and start the client:
 
-
-### Start the Server in the server directory
-npm run server
-
-
-### Run the client locally:
 npm run start
 
+4. Access the Application
+Open your browser and go to:
 
-#### Open the running app
-http://localhost:3000.
-
-
+http://localhost:3000
