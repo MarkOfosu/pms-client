@@ -1,13 +1,16 @@
 ### Pool Management System Client (pms-client)
 This is the backend server for the Pool Management System, an ongoing project for managing a pool facility, including user registrations, reservations, and more.
 
-### Test running app @ https://www.pool-ms.com/
+### Test deployed app @ https://www.pool-ms.com/
 ### Test User Credentials
 ### Admin User
 Username: admin
+
 Password: 123456
+
 ### Regular User
 Username: user1
+
 Password: 123456
 
 
@@ -19,11 +22,9 @@ Check-in and activity tracking
 
 
 ### Technologies Used
-Node.js
-Express
-PostgreSQL
-Nginx
-
+React Js
+JavaScript
+Pure Css
 
 ### Getting Started:
 
