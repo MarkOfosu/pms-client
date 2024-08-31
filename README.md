@@ -39,8 +39,8 @@ PostgreSQL
 1. Clone the Repositories
 Clone the client repository into the same project directory:
 
-git clone https://github.com/your-username/pms-server.git
-git clone https://github.com/your-username/pms-client.git
+git clone https://github.com/MarkOfosu/pms-client.git
+git clone https://github.com/MarkOfosu/pms-server.git
 
 2. Install Dependencies
 Navigate into both the client and server directories and install the necessary dependencies:
